@@ -1,0 +1,110 @@
+.wrapper{
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  font-size: 28rpx;
+  color: #4a4a4a;
+  background-color: #f7f7f7;
+}
+
+div, dl, dt, dd, p, ul, li, header, article{
+  display: block;
+}
+
+.logistics {
+  position: relative;
+  top: 100rpx;
+}
+
+.logistics span{
+  font-weight: bolder;
+}
+.logistics header{
+  padding: 0 32rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #fff;
+}
+.logistics article{
+  margin-top: 22rpx;
+  padding: 50rpx 32rpx;
+  background-color: #fff;
+}
+.logistics article .info{
+  display: flex;
+  align-items: center;
+  margin-bottom: 90rpx;
+}
+.logistics article .icon{
+  width: 120rpx;
+  height: 120rpx;
+}
+.logistics .info ul{
+  line-height: 2;
+  margin-left: 30rpx;
+}
+.logistics .tips{
+  margin-bottom: 45rpx;
+  display: flex;
+  align-items: center;
+}
+.logistics .tips image{
+  margin-right: 12rpx;
+  width: 36rpx;
+  height: 26rpx;
+}
+.logistics dl{
+  margin: 0 0 43rpx 0;
+  line-height: 1.5;
+  color: #b8b8b8;
+}
+.logistics dl:first-child{
+  color: #4a4a4a;
+}
+.logistics dl:last-child{
+  margin-bottom: 10rpx;
+}
+
+/* 2018 9 29 添加包裹tab */
+.wrapper .s {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #f5f5f5;
+  z-index: 2;
+  padding: 10px 0 0;
+}
+
+.wrapper .s .s-wrap {
+  position: relative;
+  border-bottom: 1px solid #eee;
+  margin: 0 10px 10px;
+}
+
+.wrapper .s .s-wrap .scon {
+  background: #fff;
+}
+
+.wrapper .header-tabs {
+  opacity: 0.89;
+  background: #FFFFFF;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 26rpx;
+  display: -webkit-box;
+  color: #888888;
+  width: 100%;
+  z-index: 1000;
+}
+
+.wrapper .header-tabs .list-tabs {
+  text-align: center;
+  display: block;
+  -webkit-box-flex: 1;
+  color: #888888;
+  font-size: 28rpx;
+}
+
+.wrapper .header-tabs .tab-select {
+  color: #3a3a3a;
+}

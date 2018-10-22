@@ -1,0 +1,60 @@
+<view class="page">
+  <form class="subform">
+    <view class="refund">
+      <view class="input-text">
+        <view class="text">追加情况描述</view>
+        <textarea 
+          class="input" 
+          name="name" 
+          rows="8" 
+          cols="80" 
+          placeholder="请描述您的问题，以便更快为您处理"
+          bindinput="refundeditInput">
+        </textarea>
+      </view>
+    </view>
+    <view class="imgs refund">
+      <view class="text">追加图片</view>
+      <view class="tip">请上传照片</view>
+
+      <view class="uploaded-img">
+        <image 
+          wx:key="index" 
+          wx:for="{{images}}"
+          src="{{item}}"
+          mode="scaleToFill">
+        </image>
+      </view>
+      <view class="uploadImage" bindtap="uploadImage">添加图片</view>
+
+      <!-- <view class="upimg" v-if="images.length>0" v-for="(image,i) in images">
+        <view class="close" @click="removeTodo(i)"></view>
+        <img v-lazy="image.url" alt="">
+        <input @change="upload($event,i+1)" class="file" type="file" name="file" v-if="isiOS==true" accept="image/*" multiple value="">
+        <input @change="upload($event,i+1)" class="file" type="file" name="file" v-else accept="image/*" capture="camera" multiple value="">
+      </view>
+      <view class="upimg" v-if="images.length<3">
+        <view class="uploadTip" v-if="uploadTip==true">上传中</view>
+        <input @change="upload($event)" class="file" type="file" name="file" v-if="isiOS==true" accept="image/*" multiple value="">
+        <input @change="upload($event)" class="file" type="file" name="file" v-else accept="image/*" capture="camera" multiple value="">
+      </view> -->
+    </view>
+
+    <view 
+      wx:if="{{submitDisabled==0}}" 
+      class="submit" 
+      id="submitBtn" 
+      value="提交会话">
+      提交会话
+    </view>
+    <view 
+      v-else 
+      disabled 
+      class="submit" 
+      id="submitBtn" 
+      value="提交会话"
+      bindtap="submit">
+      提交会话
+    </view>
+  </form>
+</view>

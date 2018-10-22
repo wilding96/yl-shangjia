@@ -1,0 +1,19 @@
+  <view class="rule">
+    <view class="title">适用范围</view>
+    <view>
+      <text>(1) 练豆可在有练使用，如果用户账号暂停使用，则将取消用户账户内有练币使用权益。</text>
+      <text>(2) 练豆可直接用于支付有练订单。</text>
+    </view>
+    <view class="title">有效期说明</view>
+    <view>
+      <text>(1) 获得但未使用的练豆，暂时未有有效期限，我们将在失效前提前通知。</text>
+    </view>
+    <view class="title">使用说明</view>
+    <view>
+      <text>(1) 100个练豆抵扣1元，练豆支付不得超过每笔订单的应付金额的20%。</text>
+    </view>
+    <view class="title">其他说明</view>
+    <view>
+      <text>(1) 练豆活动现为试运行阶段，规则如有调整，将及时通知。</text>
+    </view>
+  </view>

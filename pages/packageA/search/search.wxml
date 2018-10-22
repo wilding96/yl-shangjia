@@ -1,0 +1,52 @@
+<view class="search">
+  <view class="s">
+    <view class="s-wrap">
+      <view>
+        <image class="sicon" mode='widthFix' src="http://cdn.youlianyc.com/image/static/0d897b8c36207b23d827a8cc0d58eb521034631e.jpg" alt=""/>
+        <input class="sinput" auto-focus confirm-type="search" type="text" v-model="skeywords" bindblur="serachProduct" placeholder="搜索"/>
+        <view class="bsearch">搜索</view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{showHot}}" class="hot-words">
+    <view class="subtitle" wx:if="{{lastWords.length>0}}">最近搜索</view>
+    <view class="word lastSearchKey" wx:key="{{index}}" wx:for-item="word" data-word="{{word}}" wx:for="{{lastWords}}" bindtap="selectWord">{{word}}</view>
+    <view class="subtitle" wx-if="{{hotWords.length>0}}">热门搜索</view>
+    <view class="word" wx:for-item="hotword" wx:key="{{index}}" wx:for-index="{{index}}" data-word="{{hotword}}" wx:for="{{hotWords}}" bindtap="selectWord">{{hotword}}</view>
+  </view>
+  <view class="product" wx:if="{{typeof(data.products)!='undefined' && data.products.length>0}}">
+    <view class="lists" wx:for-item="{{p}}" wx:key="{{index}}" wx:for="{{data.products}}" wx:if="{{index%2==0}}">
+      <view class="list" bindtap="openPage" 
+      data-product-id="{{data.products[index].product_id}}">
+        <view class="imgs">
+          <image mode='widthFix' class="pimg" src="{{data.products[index].image+'!800x800'}}" lazy-load="true"/>
+        </view>
+        <view class="title">
+          <span class="t">
+            {{data.products[index].title}}
+          </span>
+        </view>
+        <view class="subtitle">{{data.products[index].sub_title}}</view>
+        <view class="price-info">
+          <span class="price">￥ {{data.products[index].price}}</span>
+        </view>
+      </view>
+      <view wx:if="{{data.products[index+1]}}" class="list" bindtap="openPage" 
+      data-product-id="{{data.products[index+1].product_id}}">
+        <view class="imgs">
+          <image mode='widthFix' class="pimg" lazy-load="true" src="{{data.products[index+1].image+'!800x800'}}" alt=""/>
+        </view>
+        <view class="title">
+          <span class="t">
+            {{data.products[index+1].title}}
+          </span>
+        </view>
+        <view class="subtitle">{{data.products[index+1].sub_title}}</view>
+        <view class="price-info">
+          <span class="price">￥ {{data.products[index+1].price}}</span>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:elif="{{typeof(data.products)!='undefined' && data.products.length == 0 && !showHot}}" class="noresult">暂无内容，请搜索商品关键词</view>
+</view>

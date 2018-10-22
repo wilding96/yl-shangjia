@@ -1,0 +1,43 @@
+<view class="cart">
+  <view 
+    class="shop" 
+    wx:if="{{list}}">
+    <radio-group>
+      <view 
+        class="product" 
+        wx:for="{{list.products}}"
+        wx:for-item="l"
+        wx:key="i">
+        <view class="p-detail">
+          <radio 
+            type="radio" 
+            id="'male'+{{l.detail_id}}" 
+            data-id="{{l.detail_id}}"
+            bindtap="setDetailId"
+            class="checkbtn" 
+            name="ss" />
+
+          <label class="plink" for="'male'+{{l.detail_id}}">
+            <image 
+              class="picture" 
+              data-id="{{l.detail_id}}" 
+              bindtap="setDetailId" 
+              src="{{l.product_image}}" />
+          </label>
+          <view class="product-detail">
+            <view class="title">
+              {{l.product_title}}
+            </view>
+            <view class="sku">{{l.sku_info}}</view>
+            <view class="p-qu">
+              <view class="total_price">
+                <label class="price_family">实付：￥ {{l.unit_price}}</label>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </radio-group>
+  </view>
+  <view bindtap="selectNext" class="fix-bottom">已选好，下一步</view>
+</view>

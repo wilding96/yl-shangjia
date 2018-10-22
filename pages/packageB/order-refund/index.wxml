@@ -1,0 +1,46 @@
+<view class="wrapper">
+  <view class="form">
+    <view class="form-list">
+      <view class="left">退款类型</view>
+      <view class="right"><radio checked="true"/>仅退款</view>
+    </view>
+    <view class="form-list">
+      <view class="left">退款原因</view>
+      <view class="right select">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{reason_list}}">
+          <view class="picker">
+            {{reason_list[index]}}
+          </view>
+        </picker>
+        <div class="icon">
+          <image src="http://cdn.youlianyc.com/image/static/fc59248870edfd8d6d585efc6016dfa7339aa818.jpg"></image></div>
+      </view>
+    </view>
+    <view class="form-list">
+      <view class="left">退款金额</view>
+      <view class="right">￥{{payload.refund_amount}} <span>（含邮费{{payload.refund_shipping_cost}}元）</span></view>
+    </view>
+    <view class="form-list">
+      <view class="left">退款说明</view>
+      <view class="right">
+        <input class="input" name="note" value="{{payload.note}}" bindinput ="noteInput" placeholder="请输入退款说明" />
+      </view>
+    </view>
+    <view class="imgArr" wx:if="{{uploadImg.length>0}}" 
+      wx:key="index" 
+      wx:for="{{uploadImg}}" 
+      wx:for-item="img">
+      <image 
+        src="{{img.url}}" />
+      <button catchtap="deleteImg" class="default" size="mini" type="warn" data-hash="{{img.hash}}">
+        删除
+      </button>
+    </view>
+    <view class="form-list">
+      <view class="right add">
+        <div class="upload" bindtap="uploadImage">+</div>
+      </view>
+    </view>
+  </view>
+  <button class="btn" bindtap="submitRefund">提交申请</button>
+</view>

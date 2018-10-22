@@ -1,0 +1,68 @@
+<view class="payout">
+  <view class="list">
+    <view class="tishi">
+      {{listData.qa_title}}
+    </view>
+    <view class="order-title">
+      <label class="tid">提交时间：{{listData.created_at}}</label>
+      <label for="" class="tid ttid">服务单号：{{work_order_id}}</label>
+    </view>
+    <view class="product">
+      <view class="p-detail">
+        <image class="picture" src="{{listData.order_info.product_image}}" />
+        <view class="product-detail">
+          <view class="title">{{listData.order_info.product_title}}</view>
+          <view class="sku">
+            <span class="guige">{{listData.order_info.sku_info}}</span>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="gress" wx:if="{{listData.flows.length>0}}">
+    <view class="title bnone">当前进度</view>
+    <view 
+      class="kefu" 
+      :class="{'opbg': f.operator_type!=1}" 
+      wx:key="index"
+      wx:for="{{listData.flows}}"
+      wx:for-item="f">
+      <view class="operator">
+        <label class="tor" v-text="f.operator_type==1 ? '我：':'平台回复：'"></label>
+        <label class="time">{{f.created_at}}</label>
+      </view>
+      <p class="con">{{f.content}}</p>
+      <view class="image" wx:if="{{f.images.length > 0}}">
+        <image 
+          wx:key="index"
+          wx:for="{{f.images}}"
+          wx:for-item="img"
+          wx:if="{{img}}"
+          src="{{img+'!375x375c'}}"
+          mode="widthFix" />
+      </view>
+    </view>
+  </view>
+  <view class="none" wx:else>暂无进度</view>
+  <view class="fix-bottom">
+    <view 
+      wx:if="{{listData.work_order_state==1}}" 
+      data-url="/pages/packageC/service-addWorkOrder/index?work_order_id={{work_order_id}}"
+      bindtap="jump"
+      class="huih">
+      追加咨询
+    </view>
+    <view 
+      wx:if="{{listData.work_order_state==1}}" 
+      bindtap="orderUrge">
+      {{work_text}}
+    </view>
+    <view 
+      wx:if="{{listData.work_order_state==2}}" 
+      data-url="/pages/packageC/service-submitWorkOrder/index?order_id={{listData.order_info.order_id}}&detail_id={{listData.order_info.detail_id}}&qa_id={{listData.qa_id}}"
+      bindtap="jump"
+      class="huih">
+      申请新服务单
+    </view>
+  </view>
+</view>

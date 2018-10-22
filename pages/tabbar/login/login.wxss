@@ -1,0 +1,59 @@
+page {
+  height: 100%;
+}
+
+.authorize-contianer {
+  height: 100%;
+  background: #fff;
+  text-align: center;
+  padding-top: 100rpx;
+}
+
+.authorize-contianer .auto-img .authorize-icon {
+  width: 134rpx;
+  height: 134rpx;
+  margin: 0 16rpx 0 auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.authorize-contianer .auto-img .auto-title {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.authorize-contianer .auto-img .auto-title .t1 {
+  font-family: PingFang-SC-Medium;
+  font-size: 46rpx;
+  color: #000;
+  display: block;
+}
+
+.authorize-contianer .auto-img .auto-title .t2 {
+  font-family: PingFang-SC-Regular;
+  font-size: 22rpx;
+  color: #000;
+}
+
+.authorize-contianer .auth-item {
+  font-family: PingFang-SC-Regular;
+  font-size: 30rpx;
+  color: #888;
+  text-align: center;
+  padding: 160rpx 0 280rpx;
+}
+
+.authorize-contianer .btn-authorize {
+  margin: 100rpx 50rpx;
+}
+
+.authorize-contianer .btn-authorize .btn {
+  background-color: #b12820;
+  border-radius: 100px;
+  width: 90%;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 34rpx;
+  color: #fff;
+  text-align: center;
+}

@@ -1,0 +1,244 @@
+/* 2018.9.20 */
+page {
+  width: 100%;
+  height: 100%;
+  background-color: #f85d6a;
+}
+/* 共用类 */
+.center {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+}
+.bg_red {
+  background: linear-gradient(to right, #FB8A80, #FF475F);
+}
+.bg_purple {
+  background: linear-gradient(to right, #DD6BF6, #A383FF);
+}
+/* 店铺 */
+.storeInfo {
+  height: 444rpx;
+}
+.bg_receive {
+  background: url('http://cdn.youlianyc.com/image/static/87df769d2eec1f38937f4815e1be254a7f9abd89.jpg') no-repeat;
+  background-size: cover;
+}
+.bg_received {
+  background: url('http://cdn.youlianyc.com/image/static/1b1ca52a7afb8daa474384b4740f564ab843bf43.jpg') no-repeat;
+  background-size: cover;
+}
+.userProfile {
+  width: 144rpx;
+  height: 144rpx;
+  position: relative;
+  top: 32rpx;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.profileImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.userName {
+  font-family: PingFang-SC-Medium;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 0;
+  text-align: center;
+  padding-top: 40rpx;
+  height: 108rpx;
+}
+/* 优惠券 */
+.couponContent {
+  width: 100%;
+  height: 100%;
+}
+.couponContent .couponInfo {
+  /* 券 */
+  margin: 0 32rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx 10rpx 0 0;
+}
+.couponContent .couponInfo .unreceive {
+  padding: 28rpx 56rpx 0;
+}
+.couponContent .couponInfo .unreceive .con {
+  display: flex;
+}
+.couponContent .couponInfo .unreceive .con .price {
+  width: 50%;
+  font-family: DIN-Medium;
+  font-weight: bold;
+  color: #151515;
+  letter-spacing: 0;
+  line-height: 61px;
+  -webkit-background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+  text-align: center;
+}
+.couponContent .couponInfo .unreceive .con .price .symbol {
+  font-family: PingFangSC-light;
+  font-size: 60rpx;
+}
+.couponContent .couponInfo .unreceive .con .price .num {
+  font-family: PingFangSC-Regular;
+  font-size: 100rpx;
+  text-indent: 20rpx;
+}
+.couponContent .couponInfo .unreceive .con .name {
+  width: 45%;
+  position: relative;
+  bottom:10rpx;
+}
+.couponContent .couponInfo .unreceive .con .name .name_x1 {
+  line-height: 50rpx;
+  font-family: PingFang-SC-Medium;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #3A3A3A;
+  padding-top: 20rpx;
+}
+.couponContent .couponInfo .unreceive .con .name .name_x2 {
+  line-height: 40rpx;
+  font-family: PingFang-SC-Medium;
+  font-size: 28rpx;
+  color: #5B5E63;
+}
+.couponContent .couponInfo .unreceive .time {
+  font-family: PingFangSC-Regular;
+  font-size: 20rpx;
+  color: #888888;
+  letter-spacing: 0;
+  text-align: center;
+}
+.couponContent .couponInfo .unreceive .toReceive {
+  width: 100%;
+  height: 88rpx;
+  margin-top: 10rpx;
+  font-family: PingFang-SC-Medium;
+  font-size: 36rpx;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+  text-align: center;
+  border: none;
+}
+.couponContent .couponInfo .received {
+  padding: 32rpx 56rpx 0;
+}
+.couponContent .couponInfo .received .icon .img {
+  width: 70rpx;
+  height: 27px;
+  display: block;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+}
+.couponContent .couponInfo .received .title1 {
+  padding-top: 18rpx;
+  font-family: PingFang-SC-Medium;
+  font-size: 44rpx;
+  color: #333333;
+  text-align: center;
+}
+.couponContent .couponInfo .received .title2 {
+  padding-top: 6rpx;
+  font-family: PingFang-SC-Medium;
+  font-size: 30rpx;
+  color: #9B9B9B;
+  text-align: center;
+}
+.couponContent .couponInfo .received .toUse {
+  width: 100%;
+  height: 88rpx;
+  margin-top: 10rpx;
+  font-family: PingFang-SC-Medium;
+  font-size: 36rpx;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+  text-align: center;
+  border: none;
+}
+.couponContent .divider {
+  /* 分割线 */
+  margin: 0 32rpx;
+}
+.couponContent .divider .img {
+  display: block;
+  width: 100%;
+}
+.couponContent .productInfo {
+  /* 商品   */
+  margin: 0 32rpx;
+  padding: 40rpx 0 0;
+  background: #FFFFFF;
+  border-radius: 0 0 10rpx 10rpx;
+}
+.couponContent .productInfo .pro_info {
+  margin: 0 32rpx;
+  display: flex;
+}
+.couponContent .productInfo .pro_info .pic {
+  width: 40%;
+  padding: 0 36rpx 42rpx 24rpx;
+}
+.couponContent .productInfo .pro_info .pic .img {
+  width: 240rpx;
+  height: 240rpx;
+  box-shadow: 0 0 6px 0 rgba(178, 178, 178, 0.44);
+}
+.couponContent .productInfo .pro_info .con {
+  width: 50%;
+}
+.couponContent .productInfo .pro_info .con .title {
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #3A3A3A;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.couponContent .productInfo .pro_info .con .introduce {
+  font-family: PingFangSC-Light;
+  font-size: 24rpx;
+  color: #888888;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.couponContent .productInfo .pro_info .con .old_price {
+  padding-top: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #999999;
+}
+.couponContent .productInfo .pro_info .con .now_price {
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #C75F60;
+  white-space:nowrap;
+}
+.couponContent .productInfo .pro_info .con .now_price .text_bg {
+  display: inline-block;
+  width: 130rpx;
+  text-align: center;
+  color: #fff;
+  background: url('http://cdn.youlianyc.com/image/static/e9831aa9c93260b6e91294c1c365279085d4510e.jpg') no-repeat;
+  background-size: cover;
+}
+.couponContent .productInfo .pro_info .con .now_price .price_big {
+  display: inline-block;
+  font-size: 60rpx;
+  vertical-align: -8rpx;
+}

@@ -1,0 +1,23 @@
+<view class="liandou">
+    <navigator url="/pages/packageMy/liandouHelp/help" class="help">使用帮助</navigator>
+    <view class="num">
+      累计<text class="shu"> {{ylcoin}} </text>个
+    </view>
+    <view class="c" wx:if="{{!nolist}}">
+      <view class="timu">收支明细</view>
+      <scroll-view class=""  scroll-x="true">
+        <view class="list" wx:for-item="l" wx:for="{{list}}" wx:key="l.id">
+          <view class="left">
+            <view class="title">{{l.desc}}</view>
+            <view class="time">{{l.created_at}}</view>
+          </view>
+          <view class="right">{{l.coin}}</view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="loading" wx:if="{{!nolist}}">{{message}}</view>
+    <view class="noorder" wx:if="{{nolist==true}}">
+        <image src="//qianka-fx.oss-cn-hangzhou.aliyuncs.com/kagou_app/images/7302909192650b4c6a997a5db93a4fb945e58585.png" />
+        <view>暂无练豆，加油哦</view>
+    </view>
+</view>

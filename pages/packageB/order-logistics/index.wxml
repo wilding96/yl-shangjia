@@ -1,0 +1,47 @@
+<view class="wrapper">
+  <view class="s">
+    <view class="header-tabs">
+      <view class="list-tabs {{item.shipping_code == order_info.shipping_code ? 'tab-select' : ''}}" wx:for="{{packages[1]}}" wx:key="{{index}}"
+        wx:for-item="item">
+        <view bindtap="statusTap" data-code="{{item.shipping_code}}">收货包裹</view>
+      </view>
+      <view class="list-tabs {{item.shipping_code == order_info.shipping_code ? 'tab-select' : ''}}" wx:for="{{packages[2]}}" wx:key="{{index}}"
+        wx:for-item="item">
+        <view bindtap="statusTap" class="{{tabClass[index]}}" data-code="{{item.shipping_code}}">退货包裹</view>
+      </view>
+      <view class="list-tabs {{item.shipping_code == order_info.shipping_code ? 'tab-select' : ''}}" wx:for="{{packages[3]}}" wx:key="{{index}}"
+        wx:for-item="item">
+        <view bindtap="statusTap" class="{{tabClass[index]}}" data-code="{{item.shipping_code}}">换货包裹</view>
+      </view>
+    </view>
+  </view>
+  <section class="logistics">
+    <article>
+      <div class="info">
+        <image class="icon" src="{{logistics.order_info.product_image}}" />
+        <ul>
+          <li>
+            <span>{{logistics.order_info.shipper_name}}</span>
+          </li>
+          <li>物流单号 {{logistics.order_info.shipping_code}}</li>
+          <li>物流状态
+            <span>{{logistics.order_info.shipping_state}}</span>
+          </li>
+          <li>官方电话 {{logistics.order_info.official_phone}}</li>
+        </ul>
+      </div>
+      <div class="tips">
+        <image src="http://qianka-fx.oss-cn-hangzhou.aliyuncs.com/kagou_app/images/51c15f2ba0a61c74698a899f1e1c3eb23a624181.png"
+        />
+        <div>本数据由
+          <span>{{logistics.order_info.shipper_name}}</span> 提供</div>
+      </div>
+      <div class="status">
+        <dl wx:key="index" wx:for="{{logistics.package_info.traces}}" wx:for-item="traces">
+          <dt>{{traces.accept_station}}</dt>
+          <dd>{{traces.accept_time}}</dd>
+        </dl>
+      </div>
+    </article>
+  </section>
+</view>

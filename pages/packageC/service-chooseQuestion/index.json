@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText":"选择咨询问题",
+    "usingComponents": {
+      "counter": "/pages/component/counter/counter"
+    }
+}

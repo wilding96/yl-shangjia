@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText":"申请退款详情",
+    "usingComponents": {
+      "counter": "/pages/component/counter/counter"
+    }
+}

@@ -1,0 +1,118 @@
+<view class="wrapper">
+
+	<!-- detail -->
+  <view class="detail">
+
+		<!-- list -->
+		<section class="list">
+
+			<!-- article -->
+
+			<!-- op_type===1 -->
+			<article wx:for-item="list" wx:key="index" wx:for="{{list}}" wx:if="{{list.op_type==1}}">
+				<header>{{list.created_at}}</header>
+				<dl>
+					<dt>{{list.title}}</dt>
+					<dd>
+						<p class="line"></p>
+						<p class="info">{{list.content}}</p>
+					</dd>
+				</dl>
+			</article>
+
+			<!-- op_type===2 -->
+			<article class="pass" wx:for-item="list" wx:key="index" wx:for="{{list}}" wx:if="{{list.op_type==2}}">
+				<header>{{list.created_at}}</header>
+				<dl>
+					<dt>{{list.title}}</dt>
+					<dd>
+						<p class="line"></p>
+						<p class="info">{{list.content}}</p>
+					</dd>
+				</dl>
+				<div class="triangle-left"></div>
+			</article>
+
+			<!-- op_type===3 -->
+			<article class="success" wx:for-item="list" wx:key="index" wx:for="{{list}}" wx:if="{{list.op_type==3}}">
+				<header>{{list.created_at}}</header>
+				<dl>
+					<dt>{{list.title}}</dt>
+					<dd>
+						<p class="line"></p>
+						<p class="info">{{list.content}}</p>
+					</dd>
+				</dl>
+				<div class="triangle-left"></div>
+			</article>
+			<!-- article -->
+
+			<!-- 申请通过 -->
+			<!-- <article class="pass">
+				<header>04-08 11:14</header>
+				<dl>
+					<dt>退款申请通过</dt>
+					<dd>
+						<p class="line"></p>
+						<p class="info">货物状态：未发货，原因：</p>
+						<p class="info">退款金额：35.90</p>
+					</dd>
+				</dl>
+				<div class="triangle-left"></div>
+			</article> -->
+			<!-- 申请通过 -->
+
+			<!-- 退款成功 -->
+			<!-- <article class="success">
+				<header>04-08 11:14</header>
+				<dl>
+					<dt>退款成功</dt>
+					<dd>
+						<p class="line"></p>
+						<p class="info">退款金额：35.90</p>
+					</dd>
+				</dl>
+				<div class="triangle-left"></div>
+			</article> -->
+			<!-- 退款成功 -->
+
+		</section>
+		<!-- list -->
+
+		<!-- tools -->
+  	<view class="tools">
+  		<button bindtap="jumpDetail">订单详情</button>
+  		<button
+  			data-aftersales_type="{{payload.aftersales_type}}"
+  			bindtap="jumpEdit" 
+  			wx:if="{{payload.aftersales_type === 1 && (type===1 || type===2 || type===3)}}">
+  			修改退款
+  		</button>
+  		<button 
+  			data-aftersales_type="{{payload.aftersales_type}}" 
+  			bindtap="jumpEdit" 
+  			data-type="{{type}}"
+  			wx:if="{{payload.aftersales_type !== 1 && (type!==16 && type!==17 && type!==6)}}">
+  			<span wx:if="{{type===1 || type===2 || type===3}}">修改售后</span>
+  			<span wx:if="{{type===10 && payload.aftersales_type !== 4}}">填写寄回单号</span>
+  			<span wx:if="{{type===5 || type===11 || type===12 || type===13 || type===14 || type===15}}">查看物流</span>
+			</button>
+  		<button 
+  			data-aftersales_type="{{payload.aftersales_type}}" 
+  			bindtap="jumpEditxs" 
+  			data-type="{{type}}"
+  			wx:if="{{payload.aftersales_type !== 1 && (type===13 || type===15)}}">
+  			<span>确认收货</span>
+			</button>
+			
+  	</view>
+  	<!-- tools -->
+
+		<!-- bg -->
+		<view class="bg"></view>
+		<!-- bg -->
+
+  </view>
+  <!-- detail -->
+
+</view>

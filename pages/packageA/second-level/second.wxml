@@ -1,0 +1,53 @@
+<view class="entry">
+    <view class="category">
+      <scroll-view class="type-navbar" scroll-x="true">
+        <view class="type-box">
+          <view bindtap='tabClick' id="0" class="cate {{subCategoryId==0?'select':''}}">全ee部</view>
+        </view>
+        <view class="type-box" wx:for="{{wholeData.sub_categories}}" wx:key="id">
+          <view bindtap='tabClick' id="{{item.id}}" 
+          class="cate {{subCategoryId==item.id? 'select': ''}}">{{item.name}}</view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="" style="height:36px;"></view>
+    <view class="con">
+      <scroll-view scroll-y="true" bindscrolltolower="loadMore" bindscrolltoupper="refresh" class="product">
+        <view class="lists" bindtap="openPage" data-product-id="{{list[index].id}}" 
+        wx:for="{{list}}" wx:for-item="{{p}}" wx:for-key="{{inex}}" 
+        wx:if="{{index%2==0}}">
+          <view class="list">
+            <view class="imgs">
+              <image class="pimg" src="{{list[index].image+'!800x800'}}" mode="widthFix" lazy-load="true"/>
+            </view>
+            <view class="title">
+              <text class="t">
+                {{list[index].title}}
+              </text>
+            </view>
+            <view class="subtitle">{{list[index].sub_title}}</view>
+            <view class="price">
+              <label class="nowp" for="">￥{{list[index].price}}</label>
+              <label for="" style="font-size:12px;" wx:if="{{list[index].multi_price==1}}">起</label>
+            </view>
+          </view>
+          <view wx:if="{{list[index+1]}}" class="list" bindtap="openPage" data-product-id="{{list[index+1].id}}" >
+            <view class="imgs">
+              <image class="pimg" src="{{list[index+1].image+'!800x800'}}" mode="widthFix" lazy-load="true" />
+            </view>
+            <view class="title">
+              <text class="t">
+                {{list[index+1].title}}
+              </text>
+            </view>
+            <view class="subtitle">{{list[index+1].sub_title}}</view>
+            <view class="price">
+              <text class="nowp" for="">￥{{list[index+1].price}}</text>
+              <text for="" style="font-size:12px;" wx:if="{{list[index+1].multi_price==1}}">起</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="no-more-goods">{{message}}</view>
+  </view>

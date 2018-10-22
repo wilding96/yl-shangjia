@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText":"编辑/添加地址",
+    "usingComponents": {
+      "counter": "/pages/component/counter/counter"
+    }
+}

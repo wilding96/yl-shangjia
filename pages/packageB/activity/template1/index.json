@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText":"有练活动",
+    "usingComponents": {
+      "counter": "/pages/component/counter/counter"
+    }
+}

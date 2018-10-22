@@ -1,0 +1,99 @@
+<!--1px = 750/320 = 2.34rpx;-->
+<view class="container" wx:if="{{supplier_id}}">
+  <view class="storeInfo" wx:if="{{supplier_info.name}}">
+    <view class="userProfile">
+      <image class="profileImg" wx:if="{{supplier_info.avatar}}" src="{{supplier_info.avatar}}!800x800" alt="" />      
+    </view>
+    <view class="userName">
+      {{supplier_info.name}}
+    </view>
+  </view>
+  <!-- <navigator wx:if="{{scrollTop<=100}}" class="search" url="./../../packageA/search/search">
+    <image mode="scaleToFill" class="sicon" src="http://cdn.youlianyc.com/image/static/7b07805b9416017b54e0041f927379cd254bbade.jpg!107x107p" alt="" />
+    搜索
+  </navigator> -->
+  <view class="hotSell" hidden="{{!entrys}}">
+    <view class="hotSell_title title_bg">
+      热卖推荐
+    </view>
+    <view class="hotSell_goods">
+      <scroll-view class="type-navbar shop-vip" scroll-x="true" scroll-into-view="{{toView}}">
+        <view id="going{{pin.product_id}}" class="type-box" wx:if="{{entrys.length>0}}" wx:for-item="pin" wx:for="{{entrys}}" wx:key="{{pin.product_id}}">
+          <view bindtap="openPage" data-product-id="{{pin.product_id}}" class="product-info" >
+            <view class="yimg">
+              <image class="pimg" src="{{pin.image}}!375x375c" alt="" />
+            </view>
+            <view class="price">
+              <view class="titlenima">{{pin.title}}</view>
+              <view class="pin-price">
+                ￥{{pin.price}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="allGoods">
+    <view class="allGoods_title title_bg">
+      全部商品
+    </view>
+    <view class="tabItem">
+      <view class="tab_btn {{ tab_btn===1 ? 'tab_btn_active' : ''}}" bindtap="changeFilter" data-filter-type="{{salesVolume}}">销量
+        <view class="tabIcon">
+          <view class="rankIcon {{salesVolume===1 ? 'upIcon_active' : 'upIcon'}}"></view>
+          <view class="rankIcon {{salesVolume===2 ? 'downIcon_active' : 'downIcon'}}"></view>
+        </view>
+      </view>
+      <view class="tab_btn {{ tab_btn===2 ? 'tab_btn_active' : '' }}" bindtap="changeFilter" data-filter-type="{{newProduct}}">新品</view>
+      <view class="tab_btn {{ tab_btn===3 ? 'tab_btn_active' : '' }}" bindtap="changeFilter" data-filter-type="{{priceRank}}">价格
+        <view class="tabIcon">
+          <view class="rankIcon {{priceRank===5 ? 'upIcon_active' : 'upIcon'}}"></view>
+          <view class="rankIcon {{priceRank===6 ? 'downIcon_active' : 'downIcon'}}"></view>
+        </view>
+      </view>
+    </view>
+    <view class="con">
+      <scroll-view scroll-y="true" bindscrolltolower="loadMore" bindscrolltoupper="refresh" class="product">
+        <view class="lists" catchtap="openPage" data-product-id="{{newList[index].product_id}}" 
+        wx:for="{{newList}}" wx:for-item="{{p}}" wx:for-key="{{inex}}" wx:key="{{inex}}"
+        wx:if="{{index%2==0}}">
+          <view class="list">
+            <view class="imgs">
+              <image class="pimg" src="{{newList[index].image+'!800x800'}}" mode="widthFix" lazy-load="true"/>
+            </view>
+            <view class="title">
+              <text class="t">
+                {{newList[index].title}}
+              </text>
+            </view>
+            <view class="subtitle">{{newList[index].sub_title}}</view>
+            <view class="price">
+              <text class="nowp" for="">￥{{newList[index].price}}</text>
+              <button class="price_btn">立即抢购</button>
+            </view>
+          </view>
+          <view wx:if="{{newList[index+1]}}" class="list" catchtap="openPage" data-product-id="{{newList[index+1].product_id}}" >
+            <view class="imgs">
+              <image class="pimg" src="{{newList[index+1].image+'!800x800'}}" mode="widthFix" lazy-load="true" />
+            </view>
+            <view class="title">
+              <text class="t">
+                {{newList[index+1].title}}
+              </text>
+            </view>
+            <view class="price">
+              <text class="nowp" for="">￥{{newList[index+1].price}}</text>
+              <button class="price_btn">立即抢购</button>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 返回顶部 -->
+  <view bindtap="goTop" wx:if="{{scrollTop>415}}" class="backTop">
+    <image class="img" src="http://cdn.youlianyc.com/image/static/6314f8ec4b11b40a791cbebd20148e38976ef002.jpg"></image>
+  </view>
+  <view class="no-more-goods">{{message}}</view>
+</view>

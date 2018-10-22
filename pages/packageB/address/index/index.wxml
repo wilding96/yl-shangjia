@@ -1,0 +1,35 @@
+<view class="wrapper">
+  <view 
+    class="list"
+    wx:key="index" 
+    wx:for="{{addresses}}" 
+    wx:for-item="item"
+    data-id="{{item.id}}"
+    bindtap="changeLocation">
+    <view class="left">
+      <p>
+        <span class="name">{{item.name}}</span>
+        <span class="phone">{{item.contact}}</span>
+      </p>
+      <p>{{item.province.name}}{{item.city.name}}{{item.district.name}}{{item.detail_address}}</p>
+    </view>
+    <view class="right" wx:if="{{item.id}}">
+      <!-- <span 
+        class="delete" 
+        data-id="{{item.id}}"
+        bindtap="deleteAddress">
+        删
+      </span> -->
+      <span class="default" wx:if="{{item.is_default}}">默认</span>
+      <!-- <span class="default" wx:if="{{!item.is_default}}">设为默认</span> -->
+      <image 
+        data-id="{{item.id}}"
+        bindtap="editAddress"
+        src="https://cdn.youlianyc.com/image/static/3d773ca97aedee2eb32d44d4d008b492cd593824.png">
+      </image>
+    </view>
+  </view>
+  <navigator url="../add/index">
+    <view class="button" wx:if="{{type!=='change'}}">新建地址</view>
+  </navigator>
+</view>

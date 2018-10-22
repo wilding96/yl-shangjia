@@ -1,0 +1,6 @@
+<!--pages/component/counter/counter.wxml-->
+<view class="{{counterClass}}">
+  <text class="hour">{{hour}}</text>:
+  <text class="mins">{{mins}}</text>:
+  <text class="ss">{{ss}}</text>
+</view>

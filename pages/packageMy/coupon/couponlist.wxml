@@ -1,0 +1,43 @@
+<view class="page">
+    <view class="header-tabs">
+      <view class="tabs {{tabActive=='touse'?'tab-select':''}}" data-type="touse" bindtap="tabChange">未使用</view>
+      <view class="tabs {{tabActive=='used'?'tab-select':''}}" data-type="used" bindtap="tabChange">已使用</view>
+      <view class="tabs {{tabActive=='expired'?'tab-select':''}}" data-type="expired" bindtap="tabChange">已失效</view>
+    </view>
+    <view class='xg'></view>
+    <navigator url='../coupon-details/index' >
+      领取优惠券
+    </navigator>
+    <scroll-view class=""  scroll-x="true">
+      <view class="lists" wx:if="{{lists.length>0}}" id="lists">
+        <view class="list {{tabActive}}" wx:for="{{lists}}" wx:for-item="list" wx:key="index">
+          <view class="cd">
+            <view class="free_pay"><text class="doller">￥</text>{{list.free_pay}}</view>
+            <view class="left">
+              <view class="title" wx:if="{{list.least_pay>0}}">
+                满{{list.least_pay}}减{{list.free_pay}}
+              </view>
+              <view class="title" wx:else>
+                立减{{list.free_pay}}
+              </view>
+              <view class="subtitle">{{list.title}}</view>
+              <view class="end_time">
+                有效期:{{list.start_time}}至{{list.end_time}}
+                <text class="touse" wx:if="{{tabActive=='touse' && list.is_soon_expired==1}}">(即将过期)</text>
+              </view>
+            </view>
+            <navigator class="gouser" open-type="switchTab"  wx:if="{{tabActive=='touse'}}" url="./../../tabbar/shop-list/index">去使用</navigator>
+          </view>
+          <view class="line" wx:if="{{list.transfer_type==2}}"></view>
+          <view wx:if="{{list.transfer_type==2}}" class="tranfer">
+            <text for="" wx:if="{{list.transfer_type==2}}">此优惠券由{{list.weixin_nick}}转赠给你</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <view  wx:if="{{!nolist}}" class="loading">{{message}}</view>
+    <view class="noorder" wx:if="{{nolist==true}}">
+      <image src="//qianka-fx.oss-cn-hangzhou.aliyuncs.com/kagou_app/images/7302909192650b4c6a997a5db93a4fb945e58585.png"/>
+      <view>暂无优惠券</view>
+    </view>
+  </view>

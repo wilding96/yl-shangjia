@@ -1,0 +1,88 @@
+<view class="wrapper">
+  <view class="header">
+    <p>亲，收到商品之日起7天（含），</p>
+    <p>A、如有质量问题，可申请售后，商家承担往返运费；</p>
+    <p>B、非质量问题，不影响二次销售前提下，视情况可进行退换货，需要您自行承担运费。</p>
+    <p>C、内裤、食品等特殊商品无质量问题，不支持退换货。</p>
+    <p>我们将在2小时内（非客服工作期间为：24小时）进行处理以及通知进度。</p>
+  </view>
+  <view class="form">
+    <view class="form-list">
+      <view class="left">退款类型</view>
+      <view class="right">
+        <radio-group bindchange="changeStyle">
+          <radio value="退货退款" checked="{{aftersaleType===2}}"/> 退货退款
+          <radio value="换货" checked="{{aftersaleType===3}}"/> 换货
+          <radio value="仅退款" checked="{{aftersaleType===4}}"/> 仅退款
+        </radio-group>
+      </view>
+    </view>
+    <view class="form-list" wx:if="{{aftersaleType == 2 || aftersaleType == 3}}">
+      <view class="left">寄件方式</view>
+      <view class="right">
+        <radio-group>
+          <radio name="aaa" value="退货退款" checked="true"/> 退货退款
+        </radio-group>
+      </view>
+    </view>
+    <p class="tips">为更快处理您的申请，请填写正确的原因、详细说明、照片（包含开箱照、具体问题照片等），非质量原因退换需自行支付运费哦（大件商品视情况需要支付寄出寄回运费）~</p>
+    <view class="form-list">
+      <view class="left" wx:if="{{aftersaleType===2}}">退款原因</view>
+      <view class="left" wx:if="{{aftersaleType===3}}">换货原因</view>
+      <view class="left" wx:if="{{aftersaleType===4}}">退款原因</view>
+      <view class="right select">
+        <picker 
+          bindchange="bindReasonListChange" 
+          value="{{reason_list_id[index]}}" 
+          range="{{reason_list}}"
+          wx:if="{{aftersaleType===2 || aftersaleType===3}}">
+          <view class="picker">
+            {{reason_list[index]}}
+          </view>
+        </picker>
+        <picker 
+          bindchange="bindRefundReasonListChange" 
+          value="{{refund_reason_list_id[index]}}" 
+          range="{{refund_reason_list}}"
+          wx:if="{{aftersaleType===4}}">
+          <view class="picker">
+            {{refund_reason_list[index]}}
+          </view>
+        </picker>
+        <div class="icon">
+          <image src="http://cdn.youlianyc.com/image/static/fc59248870edfd8d6d585efc6016dfa7339aa818.jpg"></image></div>
+      </view>
+    </view>
+    <view class="form-list" wx:if="{{aftersaleType === 2 || aftersaleType === 4}}">
+      <view class="left">退款金额</view>
+      <view class="right">
+        <input bindinput ="real_amountInput" wx:if="{{aftersaleType===2 || aftersaleType===3}}" value="{{payload.real_amount}}" class="input" type="text" />
+        <input bindinput ="real_amountInput" wx:if="{{aftersaleType===4}}" value="{{payload.real_amount}}" class="input" type="text" />
+      </view>
+    </view>
+    <view class="form-list">
+      <view class="left" wx:if="{{aftersaleType===2}}">退款说明</view>
+      <view class="left" wx:if="{{aftersaleType===3}}">换货说明</view>
+      <view class="left" wx:if="{{aftersaleType===4}}">退款说明</view>
+      <view class="right">
+        <input class="input" value="{{payload.note}}" name="note" bindinput ="noteInput" placeholder="请输入详细说明" />
+      </view>
+    </view>
+    <view class="imgArr" wx:if="{{uploadImg.length>0}}" 
+      wx:key="index" 
+      wx:for="{{uploadImg}}" 
+      wx:for-item="img">
+      <image 
+        src="{{img.url}}" />
+      <button catchtap="deleteImg" class="default" size="mini" type="warn" data-hash="{{img.hash}}">
+        删除
+      </button>
+    </view>
+    <view class="form-list">
+      <view class="right add">
+        <div class="upload" bindtap="uploadImage">+</div>
+      </view>
+    </view>
+  </view>
+  <button class="btn" bindtap="submitRefund">提交申请</button>
+</view>

@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText":"追加服务单",
+    "usingComponents": {
+      "counter": "/pages/component/counter/counter"
+    }
+}

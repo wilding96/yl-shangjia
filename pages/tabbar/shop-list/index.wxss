@@ -1,0 +1,1509 @@
+/**index.wxss**/
+/* new start  */
+.fixedTop {
+  position: fixed;
+  width: 92%;
+  background-color: #fff;
+  top: 0;
+  z-index: 10;
+  padding: 5px 4%;
+  box-shadow: 0 10px 10px -10px #ccc;
+  animation: mymove 2s;
+  -webkit-animation: mymove 2s;
+}
+.fixedTop .tabs .t {
+  color: #333;
+  padding: 5px 0;
+}
+.fixedTop .search {
+  border: 1px solid #eee;
+}
+.search {
+  background: rgba(255,255,255,0.85);
+  border-radius: 100px;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  font-family: HelveticaNeue-Bold;
+  font-size: 14px;
+  color: #999999;
+  position: relative;
+  text-indent: 10px;
+}
+.search image {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 15px;
+  top: 7px;
+}
+@keyframes mymove {
+  0% {
+    top: -30px;
+    opacity: 0;
+  }
+
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+
+}
+.headerIndex {
+  background: url("http://cdn.youlianyc.com/image/static/1fcf80293281332e699a21e2844442f5c4cddec3.jpg!1125") 0 0 no-repeat;
+  background-size: 100%;
+  position: relative;
+  padding: 15px 20px 0;
+}
+
+.tabs {
+  display: -webkit-box;
+}
+
+.tabs .t {
+  display: block;
+  -webkit-box-flex: 1;
+  width: 1%;
+  text-align: center;
+  color: #FFFFFF;
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  padding: 15px 0;
+}
+
+.tabs .t .small {
+  display: block;
+  font-family: Helvetica;
+  font-size: 6px;
+}
+
+.tabs .selectab {
+  font-family: PingFang-SC-Medium;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
+.tabs .selectab {
+  animation: .5s opacity2 0s 1;
+  -webkit-animation: .5s opacity2 0s 1;
+  -moz-animation: .5s opacity2 0s 1;
+}
+
+@keyframes opacity2 {
+  0% {
+    opacity: 0;
+    font-size: 13px;
+  }
+
+  100% {
+    opacity: 1;
+    font-size: 20px;
+  }
+
+}
+
+@-webkit-keyframes opacity2 {
+  0% {
+    opacity: 0;
+    font-size: 13px;
+  }
+
+  100% {
+    opacity: 1;
+    font-size: 20px;
+  }
+
+}
+.newCategray .cateList {
+  padding: 0 18px 10px;
+  display: -webkit-box;
+}
+
+.newCategray .cateList .c {
+  display: block;
+  -webkit-box-flex: 1;
+  text-align: center;
+}
+
+.newCategray .cateList .c image {
+  width: 95%;
+}
+.entrysPadd {
+  padding-bottom: 15px;
+}
+
+.list_entries {
+  margin: 0 20px 20px;
+}
+
+.list_entries .en {
+  width: 100%;
+  border-radius: 6px 6px 0 0;
+  display: block;
+}
+
+.list_entries .lbottom {
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.05);
+}
+
+.list_entries .title {
+  font-family: PingFang-SC-Medium;
+  font-size: 14px;
+  color: #333333;
+  padding: 12px 10px 0;
+}
+
+.list_entries .sub_title {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #999999;
+  margin: 0 10px;
+}
+
+.list_entries .p {
+  display: table;
+  width: 100%;
+}
+
+.list_entries .p .pimg {
+  display: inline-block;
+  width: 33.3333%;
+}
+
+.animate {
+  animation: 2s animate2 0s 1;
+  -webkit-animation: 2s animate2 0s 1;
+  -moz-animation: 2s animate2 0s 1;
+}
+
+@keyframes animate2 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+}
+
+@-webkit-keyframes animate2 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+}
+.switch {
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  background: #333;
+  color: #E8D492;
+  font-size: 12px;
+  height: 30px;
+  line-height: 30px;
+}
+.shopInfo {
+  height: 54px;
+  line-height: 54px;
+  background: #f2f2f2;
+  padding: 0 20px;
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  color: #333333;
+  vertical-align: middle;
+  position: relative;
+}
+.shopInfo .icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 36px;
+  vertical-align: middle;
+}
+
+.card {
+  background-image: linear-gradient(-135deg, #FDF0CE 0%, #E8D492 100%);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  height: 40px;
+  line-height: 40px;
+  margin: 20px 20px 0;
+  position: relative;
+  text-indent: 12px;
+  vertical-align: middle;
+  display: block;
+}
+
+.card .hg {
+  width: 22px;
+  vertical-align: middle;
+}
+
+.card .ctitle {
+  font-family: PingFang-SC-Bold;
+  font-size: 14px;
+  color: #695729;
+}
+
+.card .cright {
+  font-family: PingFang-SC-Medium;
+  font-size: 11px;
+  color: #695729;
+  position: absolute;
+  right: 12px;
+  top: 0;
+  background: url("http://cdn.youlianyc.com/image/static/ba8bb68e994b2741bb4ccb24226df8299ccefc7e.jpg") right no-repeat;
+  background-size: 16px;
+  padding-right: 16px;
+}
+
+.card .cright .cprice {
+  font-family: PingFang-SC-Bold;
+  font-size: 14px;
+  color: #B78D37;
+}
+
+/*new end  */
+
+
+.container {
+  background-color: #fff;
+  min-height: 100%
+}
+.swiper-img {
+   height: 166px; 
+   border-radius: 5px;
+}
+.slide-image {
+  height: 166px;
+  width: 100%;
+  border-radius: 5px;
+}
+.cateTab {
+  height: 36px;
+}
+.type-navbar{
+   white-space: nowrap; 
+  /* height: 88rpx; */
+  /* width: 100%; */
+  background-color: #fff;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.marg {
+  padding-bottom: 20px;
+}
+
+.marg1 {
+  padding-bottom: 40px;
+}
+
+.s_name {
+  display: block;
+  position: relative;
+  background-color: #fff;
+}
+
+.s_name .bgimg {
+  width: 100%;
+  height: 120px;
+}
+
+.s_name .hdimg {
+  position: absolute;
+  top: 74px;
+  left: 20px;
+  border: 1px solid #ddd;
+}
+
+.s_name .hdimg .s_img {
+  width: 66px;
+  height: 66px;
+  border: 2px solid #fff;
+  margin-bottom: -6px;
+}
+
+.s_name .shop_name {
+  font-family: PingFangSC-Regular;
+  font-size: 18px;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 85px;
+  left: 112px;
+}
+
+.s_name .s-tip {
+  font-family: PingFangSC-Light;
+  font-size: 14px;
+  color: #999999;
+  padding: 0 20px;
+  margin: 35px 0 0;
+}
+.secCate {
+  background: #fff;
+  padding: 20px 0;
+}
+
+.secCate .s1 .cate {
+  display: inline-block;
+  text-align: center;
+  width: 24%;
+}
+
+.secCate .s1 .cate .cimg {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+
+.secCate .s1 .cate .ctext {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #666666;
+  display: block;
+}
+.select{
+  border-bottom: 2px solid #B34852;
+  font-family: PingFang-SC-Medium!important;
+  color: #333333!important;
+}
+.bannerimg {
+  padding: 16px 20px;
+  background-color: #fff;
+}
+.bannerimg image {
+  vertical-align: middle;
+}
+
+.product-info .yimg {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.product-info .yimg .pimg {
+  width: 120px;
+  height: 120px;
+}
+
+.product-info .yimg .ytag {
+  border: 1px solid #B34852;
+  border-radius: 2px;
+  color: #B34852;
+  height: 18px;
+  box-sizing: border-box;
+  padding: 0 5px;
+  line-height: 18px;
+  font-size: 12px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background: #fff;
+}
+
+
+.product-info .price .pTitle {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  margin-bottom: 6px;
+  color: #4A4A4A;
+  line-height: 18px;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  max-height: 36px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.product-info .price .origin-price {
+  display: inline-block;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #9B9B9B;
+  text-decoration: line-through;
+  text-indent: 30rpx;
+}
+
+.product-info .price .pin-price {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #333333;
+  line-height: 12px;
+}
+
+.product-info .price .pin-price .universe-price {
+  font-family: PingFang-SC-Medium;
+  font-size: 16px;
+  color: #B34852;
+  line-height: 16px;
+}
+
+.product-info .price .special-price {
+  line-height: 16px;
+}
+
+.product-info .price .special-price .universe-price {
+  font-family: PingFang-SC-Medium;
+  font-size: 16px;
+  color: #B34852;
+  line-height: 16px;
+}
+
+.product-info .price .special-price .zhuan-price {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #333333;
+  line-height: 12px;
+}
+
+.product-info .price .special-price .unit {
+  font-size: 10px;
+  color: #B34852;
+  position: relative;
+}
+.type-box{
+   /* width:160rpx;  */
+  box-sizing: content-box;
+  font-size: 26rpx;
+  height: 384rpx;
+  text-align: center;
+  display: inline-block;
+  /* overflow: hidden; */
+}
+.type-navbar-item{
+  border-bottom: 4rpx solid #fff;
+  color: #999;
+  /* width: 110rpx; */
+  margin: 0 10px;
+}
+.type-item-on{
+  border-bottom: 4rpx solid #333;
+  color: #333;
+  font-size: 32rpx;
+}
+
+.goods-container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap:wrap;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.titlePic {
+  width: 126px;
+  height: 20px;
+  margin: 40rpx 0;
+}
+.content-banner {
+  width: 100%;
+  box-sizing: border-box;
+}
+.content-banner .banner {
+  width: 100%;
+  height: auto;
+  margin: 0 auto 10px auto;
+  display: block;
+}
+.specialBanner {
+  margin: 15px 0!important;
+}
+.goods-box{
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden;
+}
+.goods-box .img-box{
+  overflow: hidden;
+  position: relative;
+}
+.goods-box .img-box .manufacturer {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  background: hsla(0,0%,100%,.8);
+  height: 30px;
+  line-height: 30px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  font-size: 10px;
+  color: #3a3a3a;
+  padding: 0 10px;
+  font-family: PingFang-SC-Medium;
+  z-index: 3;
+}
+.goods-box .img-box image{
+  width: 100%;
+  height: 200px;
+  display: block;
+  border-radius: 2px 2px 0 0;
+}
+.goods-box .goods-title{
+  overflow: hidden;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  color: #3A3A3A;
+  margin: 20rpx 22rpx;
+}
+.goods-box .goods-price{
+  line-height: 18px;
+  padding-bottom: 10px;
+  position: relative;
+  margin: 0 12px;
+  font-family: PingFang-SC-Medium;
+  font-size: 16px;
+  color: #333;
+}
+.goods-box .goods-price .doller {
+  font-size: 20rpx;
+}
+.goods-box .goods-price .shangjia {
+  font-family: PingFangSC-Light;
+  font-size: 10px;
+  color: #888;
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+}
+.goods-box .goods-price .hui{
+ background: #fff!important;
+ border:1rpx solid #D43C33!important;
+}
+.goods-box .goods-price .hui span{
+  color: #D43C33!important;
+}
+.shangjia span {
+  color: #fff;
+  display: block;
+  width: 100%;
+  height: 56rpx;
+}
+.goods-box .win-price {
+  font-size: 36rpx;
+  color: #D43C33;
+  display: inline-block;
+}
+
+.type-container{
+  width: 100%;
+  /* height: 88rpx; */
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  z-index: 10;
+}
+.notice{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap:wrap;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 750rpx;
+  margin-top: 10rpx;
+  background-color: #fff;
+}
+.notice_swiper{
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  width: 635rpx;
+}
+.notice_iteml {
+  padding-left: 25rpx;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  font-size: 26rpx;
+  width: 80rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #999;
+}
+.notice_itemr {
+  padding-left: 10rpx;
+  font-size: 26rpx;
+  overflow: hidden;
+  color: #e64340;
+  width: 635rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.pos-fiexd{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.coupons{
+  margin-top:10rpx;
+  width: 100%;
+  height: 180rpx;
+  overflow: hidden;
+}
+.coupons-scroll{
+  white-space: nowrap;
+  height: 180rpx;
+  width: 100%;
+  background-color: #fff;
+}
+.coupons-item{
+  width:300rpx;
+  height: 180rpx;
+  margin: 10rpx;
+  padding-top: 20rpx;
+  padding-left: 15rpx;
+  background-color: #f1a83b;
+  box-sizing: content-box;
+  font-size: 20rpx;
+  line-height: 35rpx;
+  overflow: hidden;
+  color: #fff;
+  display: inline-block;
+}
+.content-with-swiper {
+  background-color: #fff;
+}
+.viptitle {
+  margin: 15px 20px 12px;
+  position: relative;
+}
+.viptitle .member {
+  display: inline-block;
+  font-family: HelveticaNeue-Bold;
+  font-size: 20px;
+  color: #333333;
+  vertical-align: middle;
+}
+.viptitle .selg {
+  color: #333
+}
+.viptitle .apply {
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 28px;
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #333333;
+}
+.viptitle .apply .righticon {
+  width: 13px;
+  vertical-align: middle;
+}
+.product-info {
+  /* margin: 0  5px 23px; */
+}
+.product-info .yimg {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.product-info .yimg .pimg {
+  width: 120px;
+  height: 120px;
+}
+
+.product-info .yimg .ynum {
+  position: absolute;
+  bottom: 0;
+  background: #333;
+  width: 120px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 10px;
+  color: #F4D48F;
+  font-family: PingFangSC-Regular;
+}
+
+.product-info .yimg .endy {
+  color: #fff;
+}
+
+.product-info .yimg .preview {
+  background: #F5F5F5;
+  font-family: PingFang-SC-Medium;
+  font-size: 10px;
+  color: #CDA572;
+}
+
+.product-info .yimg .ystock {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 5px;
+  background: #CDA572;
+  text-align: center;
+  border-radius: 0 15px 15px 0;
+  font-family: PingFang-SC-Medium;
+  font-size: 10px;
+  color: #FFFFFF;
+  height: 20px;
+  line-height: 20px;
+}
+
+.product-info .yimg .ystock label {
+  font-size: 12px;
+}
+
+.product-info .yimg .prebg {
+  background: #a3d571 !important;
+}
+
+.product-info .yimg .xiangou {
+  position: absolute;
+  left: 0;
+  background: #B34852;
+  color: #fff;
+  font-size: 10px;
+  top: 0;
+  padding: 2px 5px;
+}
+
+.product-info .yimg .ytag {
+  border: 1px solid #B34852;
+  border-radius: 2px;
+  color: #B34852;
+  height: 18px;
+  box-sizing: border-box;
+  padding: 0 5px;
+  line-height: 18px;
+  font-size: 12px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background: #fff;
+}
+
+.product-info .price {
+  font-family: PingFangSC-Regular;
+  padding: 4px 0 12px;
+  width: 104px;
+}
+
+.product-info .price .titlenima {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  margin-bottom: 6px;
+  color: #333;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  position: relative;
+  white-space:initial;
+
+}
+
+.product-info .price .pin-price {
+  font-family: HelveticaNeue;
+  font-size: 16px;
+  color: #B34852;
+}
+
+.product-info .price .pin-price .vipicon {
+  width: 40px;
+  margin-top: -3px;
+  vertical-align: middle;
+}
+
+.product-info .price .special-price {
+  line-height: 16px;
+}
+
+.product-info .price .special-price .universe-price {
+  font-family: PingFang-SC-Medium;
+  font-size: 16px;
+  color: #B34852;
+  line-height: 16px;
+}
+
+.product-info .price .special-price .zhuan-price {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #333333;
+  line-height: 12px;
+}
+
+.product-info .price .special-price .unit {
+  font-size: 10px;
+  color: #333;
+  position: relative;
+  top: -2px;
+}
+
+.product-info .price .special-price .unit.universe {
+  color: #B34852;
+}
+.preline {
+  margin:0 10px;
+  width:20px;
+  vertical-align: top;
+}
+.shop-vip {
+  padding:0 20px;
+}
+.shop-vip .type-box {
+  margin-right: 10px;
+}
+.totolActivity {
+  display: -webkit-box;
+  padding: 24px 20px 20px;
+  background-color: #fff;
+  /* margin-bottom: 10px; */
+}
+
+.totolActivity .left, .totolActivity .right {
+  -webkit-box-flex: 1;
+  display: block;
+  width: 1%;
+}
+
+.totolActivity .left .l1, .totolActivity .right .l1 {
+  width: 100%;
+  display: block;
+}
+.entrys {
+  padding: 20px;
+}
+.entrys .type-box {
+  width: 280px;
+  margin-right: 10px;
+}
+.entrys .titlePic {
+  margin: 0 0 10px;
+}
+.entrys .pimg {
+  width: 280px;
+  height: 150px;
+  margin: 0 10px 10px 0;
+  display: block;
+}
+.entrys .title {
+  font-size: 14px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-top: 10px;
+  text-align: left;
+  line-height: 20px;
+  white-space:initial;
+
+}
+.entrys .subtitle {
+  font-size: 12px;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-align: left;
+  line-height: 20px;
+  white-space:initial;
+}
+
+.vipCounter {
+  display: inline-block;
+  color: #333;
+  font-family: Helvetica-Bold;
+  margin-left: 10px;
+}
+.five .first {
+  -webkit-box-flex: 1.2 !important;
+  margin-right: 10px !important;
+}
+
+.five .first .d4f0fb {
+  height: 180px !important;
+}
+
+.five .title {
+  font-size: 14px !important;
+}
+
+.five .second .commonT {
+  padding: 10px 7px !important;
+  height: 85px !important;
+  text-align: center;
+}
+
+.five .second .commonT .title, .five .second .commonT .subtitle {
+  text-align: left;
+}
+
+.five .second .commonT .img {
+  position: static;
+  width: 30px !important;
+  height: 30px !important;
+  margin-top: 15px !important;
+}
+
+.fourBanner .commonT {
+  position: relative !important;
+}
+
+.subBanner {
+  display: -webkit-box;
+  padding: 0 20px;
+  margin-top: 20px;
+}
+
+.subBanner .first, .subBanner .second {
+  display: block;
+  -webkit-box-flex: 1;
+  width: 1%;
+}
+
+.subBanner .first {
+  margin-right: 5px;
+}
+
+.subBanner .first .fbdfd4 {
+  height: 170px;
+  position: relative;
+}
+
+.subBanner .first .fbdfd4 .img {
+  position: absolute;
+  left: 12%;
+  width: 76%;
+  bottom: -7px;
+}
+
+.subBanner .second {
+  margin-left: 5px;
+}
+
+.subBanner .second .img {
+  width: 80px !important;
+  height: 80px !important;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  margin: 0 !important;
+}
+
+.subBanner .second .fbdfd4 {
+  height: 60px;
+  padding: 20px 9px;
+  margin-bottom: 10px;
+}
+
+.subBanner .second-margin {
+  margin: 0 5px 0 0;
+}
+
+.subBanner .commonT .title {
+  font-family: HelveticaNeue-Bold;
+  font-size: 16px;
+}
+
+.subBanner .commonT .subtitle {
+  opacity: 0.6;
+  font-family: HelveticaNeue;
+  font-size: 10px;
+}
+
+.subBanner .commonT .btn {
+  border-radius: 100px;
+  width: 35px;
+  height: 16px;
+  line-height: 16px;
+  font-family: HelveticaNeue;
+  font-size: 10px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.subBanner .fbdfd4 {
+  padding: 20px 15px;
+  height: 170px;
+  background-image: linear-gradient(43deg, #FBDFD4 0%, #FCE9E3 100%);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+}
+
+.subBanner .fbdfd4 .title {
+  color: #D48561;
+}
+
+.subBanner .fbdfd4 .subtitle {
+  color: #333333;
+}
+
+.subBanner .fbdfd4 .btn {
+  background: #D48561;
+}
+
+.subBanner .fbdfd4 .img {
+  width: 100%;
+}
+
+.subBanner .f7f0f4, .subBanner .f6f4fa {
+  position: relative;
+}
+
+.subBanner .f7f0f4 {
+  background-image: linear-gradient(-134deg, #F7F0F4 0%, #E4D3DB 100%);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  height: 60px;
+  padding: 20px 9px;
+  margin-bottom: 10px;
+}
+
+.subBanner .f7f0f4 .title {
+  color: #333;
+  opacity: 0.6;
+}
+
+.subBanner .f7f0f4 .subtitle {
+  color: #855B6D;
+  opacity: 0.6;
+}
+
+.subBanner .f7f0f4 .btn {
+  background: #855B6D;
+}
+
+.subBanner .f6f4fa {
+  background-image: linear-gradient(-132deg, #F6F4FA 0%, #CCD2E2 100%);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  height: 60px;
+  padding: 20px 9px;
+}
+
+.subBanner .f6f4fa .title {
+  color: #333;
+  opacity: 0.6;
+}
+
+.subBanner .f6f4fa .subtitle {
+  color: #576A9A;
+  opacity: 0.6;
+}
+
+.subBanner .f6f4fa .btn {
+  background: #576A9A;
+}
+
+.subBanner .f7faf4 {
+  background-image: linear-gradient(-132deg, #F7FAF4 0%, #CDE6C0 100%);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  height: 60px;
+  padding: 20px 9px;
+  margin-bottom: 10px;
+}
+
+.subBanner .f7faf4 .title {
+  color: #333;
+  opacity: 0.6;
+}
+
+.subBanner .f7faf4 .subtitle {
+  color: #f79c5b;
+  opacity: 0.6;
+}
+
+.subBanner .f7faf4 .btn {
+  background: #729c5b;
+}
+
+.subBanner .d4f0fb {
+  padding: 20px 15px;
+  height: 170px;
+  background-image: linear-gradient(39deg, #D4F0FB 0%, #F3FCFF 100%);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+}
+
+.subBanner .d4f0fb .title {
+  color: #4C8DA4;
+}
+
+.subBanner .d4f0fb .subtitle {
+  color: #333333;
+  opacity: 0.6;
+}
+
+.subBanner .d4f0fb .btn {
+  background: #4C8DA4;
+}
+
+.subBanner .d4f0fb .img {
+  width: 100%;
+  height: 80px;
+  margin-top: 30px;
+}
+
+/* 8.13 有练商家1.0 主页css */
+.storeInfo {
+  background-image: url('http://cdn.youlianyc.com/image/static/46a05176c50859db03ed85dced9e08a0e350fd3b.jpg');
+  background-size: cover;
+  background-repeat:no-repeat;
+}
+
+.userProfile {
+  width: 144rpx;
+  height: 144rpx;
+  position: relative;
+  top: 32rpx;
+  left: 50%;
+  transform: translate(-50%,0);
+}
+
+.profileImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.userName {
+  font-family: PingFang-SC-Medium;
+  font-size: 16px;
+  color: #000000;
+  letter-spacing: 0;
+  text-align: center;
+  padding-top: 40rpx;
+  height: 108rpx;
+}
+
+.title_bg {
+  font-family: PingFang-SC-Medium;
+  font-size: 20px;
+  color: #333333;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: center;
+  background-image: url('http://cdn.youlianyc.com/image/static/e8b700989d14e4906a701432b12498f3f5b662a4.jpg');
+  background-size: 100%;
+}
+
+.hotSell_title {
+  margin-top: 20rpx;
+}
+
+.hotSell_goods {
+  margin: 40rpx 0;
+}
+
+.product-info {
+  padding: 0 8px;
+  box-shadow: 0 12px 15px -8px rgba(0,0,0,0.11);
+}
+
+.allGoods {
+  /* margin-top: 60rpx; */
+}
+
+.tabItem {
+  margin-top: 30rpx;
+}
+
+.tab_btn {
+  display: inline-block;
+  width: 33.3%;
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #999999;
+  border-bottom:  #D8D8D8 2px solid;
+  line-height: 21px;
+  padding-bottom: 16rpx;
+}
+
+.tab_btn_active {
+  color: #CDA572;
+  border-bottom: #CDA572 2px solid;
+}
+
+.tabIcon {
+  display: inline-block;
+  position: relative;
+}
+
+.tabIcon .rankIcon {
+  width: 7px;
+  height: 4px;
+  position: absolute;
+}
+
+.upIcon {
+  top: -9px;
+  background-image: url('http://cdn.youlianyc.com/image/static/87823c8d3a2feb4f4e7e55966619791778646741.jpg');
+  background-size: cover;
+}
+
+.upIcon_active {
+  top: -9px;
+  background-image: url('http://cdn.youlianyc.com/image/static/6ea521f6a5a22720736ebbfe5ebdb834ba745caf.jpg');
+  background-size: cover;
+}
+
+.downIcon {
+  top: -3px;
+  background-image: url('http://cdn.youlianyc.com/image/static/b9726ea199db49e63edf7ce340a572bcce9f27c9.jpg');
+  background-size: cover;
+}
+
+.downIcon_active {
+  top: -3px;
+  background-image: url('http://cdn.youlianyc.com/image/static/73e7ae5641cce664f1af76f1a9b8d95030a83694.jpg');
+  background-size: cover;
+}
+
+.product-info .price {
+  font-family: PingFangSC-Regular;
+  margin: 9px auto 0px;
+  width: 120px;
+  text-align: left!important;
+}
+
+
+/* new 1.0 */
+.allGoods .con {
+  background-color: #f5f5f5;
+  padding: 18px 0 0;
+}
+
+.allGoods .con .yu {
+  padding-top: 10px;
+}
+
+.allGoods .con .yu .logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+  vertical-align: middle;
+}
+
+.allGoods .con .yu .tip {
+  font-family: PingFangSC-Light;
+  font-size: 12px;
+  color: #666666;
+  display: inline-block;
+  width: 70%;
+  vertical-align: middle;
+}
+
+.allGoods .con .shelf {
+  background: #B34852;
+  height: 41px;
+  line-height: 41px;
+  color: #fff;
+  text-align: center;
+  font-family: FZLTHK--GBK1-0;
+  font-size: 14px;
+  margin: 20px 0 10px;
+}
+
+.allGoods .con .product {
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.allGoods .con .product .lists {
+  display: -webkit-box;
+  margin: 0 14.5px;
+}
+
+.allGoods .con .product .list {
+  display: block;
+  -webkit-box-flex: 1;
+  width: 1%;
+  vertical-align: top;
+  padding: 10px 8px 8px;
+  background-color: #fff;
+  border-radius: 4px;
+  margin: 0 5.5px 10px;
+}
+
+.allGoods .con .product .list .imgs {
+  position: relative;
+  background-color: #f2f2f2;
+}
+
+.allGoods .con .product .list .imgs .pimg {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+.allGoods .con .product .list .imgs .peo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 44px;
+  width: 44px;
+  border-radius: 44px;
+  background-color: #fff;
+  border: 0.5px solid #333;
+  color: #333333;
+  text-align: center;
+}
+
+.allGoods .con .product .list .imgs .peo .count {
+  font-family: DINMittelschriftStd;
+  font-size: 11px;
+  height: 11px;
+  display: block;
+  margin-top: 10px;
+}
+
+.allGoods .con .product .list .imgs .peo .ptext {
+  font-family: PingFangSC-Regular;
+  font-size: 8px;
+  height: 8px;
+  display: block;
+}
+
+.allGoods .con .product .list .manfact {
+  height: 20px;
+  line-height: 20px;
+  background: #86CB41;
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #FFF;
+  padding: 0 8px;
+  margin: 9px auto 0;
+  display: inline-block;
+}
+
+.allGoods .con .product .list .title {
+  overflow: hidden;
+}
+
+.allGoods .con .product .list .title .tag {
+  border: 1px solid #D43C33;
+  border-radius: 1px;
+  height: 16px;
+  line-height: 16px;
+  font-size: 10px;
+  color: #D43C33;
+  margin-right: 6px;
+  padding: 0 3px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.allGoods .con .product .list .title .t {
+  font-family: PingFangSC-Regular;
+  font-size: 15px;
+  color: #333;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.allGoods .con .product .list .subtitle {
+  font-family: PingFangSC-Regular;
+  font-size: 11px;
+  color: #888;
+  line-height: 16px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.allGoods .con .product .list .price {
+  height: 35px;
+  line-height: 35px;
+  position: relative;
+}
+
+.allGoods .con .product .list .price .nowp {
+  font-family: SFNSText-Regular;
+  font-size: 32rpx;
+  color: #C75F60;
+}
+
+.allGoods .con .product .list .price .nowp_origin {
+  display: inline-block;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #9B9B9B;
+  text-decoration: line-through;
+  text-indent: 12rpx;
+  letter-spacing: -1rpx;
+}
+
+
+.allGoods .con .product .list .price .zp {
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #B34852;
+}
+
+.allGoods .con .product .list .eventshelf {
+  width: 95%;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  background: #B34852;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #FFFFFF;
+  border: 1px solid #B34852;
+}
+
+.allGoods .con .product .list .hui {
+  background-color: #fff;
+  color: #B34852;
+}
+
+.price_btn {
+  display: inline-block;
+  width: 100rpx;
+  height: 40rpx;
+  background: #C75F60;
+  border-radius: 2px;
+  font-family: PingFangSC-Regular;
+  font-size: 20rpx;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 36rpx;
+  padding: 2rpx 10rpx;
+  position: absolute;
+  right: 0;
+  bottom: 14rpx;
+}
+
+/* 返回顶部 */
+.backTop {
+  position: fixed;
+  bottom: 140rpx;
+  right: 20rpx;
+}
+
+.backTop .img {
+  width: 88rpx;
+  height: 88rpx;
+}

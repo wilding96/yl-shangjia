@@ -1,0 +1,54 @@
+<view 
+  class="my" 
+  wx:if="{{listData}}">
+  <view class="xunq">
+    <view>所选订单信息：</view>
+    <view>订单号{{listData.order_info.order_id}}，</view>
+    <view>{{listData.order_info.product_title}}</view>
+  </view>
+  <view 
+    class="order" 
+    wx:if="{{listData.current_work_order.length>0}}">
+    <view class="helpq" style="color:#4A90E2">该订单已有处理中的服务单</view>
+    <view class="work">
+      <view 
+        wx:key="index"
+        wx:for="{{listData.current_work_order}}"
+        wx:for-item="c"
+        data-url="/pages/packageC/service-workOrderDetail/index?work_order_id={{c.work_order_id}}"
+        bindtap="jump">
+        服务单号： {{c.work_order_id}}
+        问题： {{c.title}}
+        <image 
+          class="olink" 
+          mode="widthFix"
+          style="top: 0; right: 0;"
+          src="http://cdn.youlianyc.com/image/static/433b7a36f265ab4a0559b8eba910c008861e2a30.jpg" />
+      </view>
+    </view>
+  </view>
+  <view class="order">
+    <view class="helpq">请问有什么可以帮您？</view>
+    <!-- "detail_type":1 //跳转类型，0-子列表，1-提交工单，2-提交售后 4-提交退款， 5-修改收货地址-->
+    <view 
+      wx:key="index"
+      wx:for="{{listData.qa_list}}"
+      wx:for-item="q"
+      data-type="{{q.detail_type}}"
+      data-id="{{q.qa_id}}"
+      bindtap="jumpPage" 
+      class="manage">
+      {{q.title}}
+      <view class="keeper">{{q.subtitle}}</view>
+      <image 
+        class="olink"
+        mode="widthFix"
+        src="http://cdn.youlianyc.com/image/static/433b7a36f265ab4a0559b8eba910c008861e2a30.jpg" />
+      <view
+        class="fixed-manage"
+        wx:if="{{q.detail_type === 100}}">
+        <button open-type="contact">在线客服</button>
+      </view>
+    </view>
+  </view>
+</view>

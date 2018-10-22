@@ -1,0 +1,192 @@
+.evaluate {
+  padding-bottom: 2rpx;
+  background-color: #fff;
+}
+.evaluate .btn {
+  margin: 16px;
+}
+.evaluate .btn .b1 {
+  width: 56px;
+  height: 25px;
+  line-height: 25px;
+  background-color: #fff;
+  padding: 0;
+  margin-right: 10px;
+  border: 1px solid #CECECE;
+  color: #CECECE;
+  display: inline-block;
+  font-size: 14px;
+  text-align: center;
+}
+.evaluate .btn .btnactive {
+  border: 1px solid #3A3A3A;
+  color: #3a3a3a;
+}
+.evaluate .scroll {
+  background-color: #fff;
+}
+.evaluate .scroll .lists {
+  border-bottom: 1px solid #ececec;
+  padding: 0 16px;
+}
+.evaluate .scroll .lists .reply {
+  border-top: 1px solid #ececec;
+  font-size: 12px;
+  color: #3A3A3A;
+}
+.evaluate .scroll .lists .reply label {
+  font-family: PingFangSC-Regular;
+  color: #D69867;
+  height: 36px;
+  line-height: 36px;
+}
+.evaluate .scroll .lists .rmessage {
+  padding: 12px 0;
+}
+.evaluate .scroll .lists .rmessage .avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 38px;
+  display: inline-block;
+}
+.evaluate .scroll .lists .rmessage .rcontent {
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 10px;
+}
+.evaluate .scroll .lists .rmessage .rcontent .nick {
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #3A3A3A;
+  line-height: 13px;
+  display: block;
+  padding: 5px 0;
+}
+.evaluate .scroll .lists .rmessage .rcontent .time {
+  font-family: PingFangSC-Light;
+  font-size: 11px;
+  color: #CECECE;
+  line-height: 12px;
+  display: block;
+}
+.evaluate .scroll .lists .rc .c {
+  font-size: 13px;
+  color: #3A3A3A;
+}
+.evaluate .scroll .lists .rc .imgs {
+  width: 100%;
+  line-height: 35px;
+  color: #3a3a3a;
+  font-size: 13px;
+  background-color: #fff;
+  text-align: center;
+  margin-bottom: 10px;
+  overflow-x: scroll;
+  margin-top: 12px;
+}
+.evaluate .scroll .lists .rc .imgs .swiper-slide {
+  width: 150px;
+}
+.evaluate .scroll .lists .rc .imgs img {
+  width: 150px;
+  height: 150px;
+}
+.evaluate .scroll .lists .skuinfo {
+  font-family: PingFangSC-Light;
+  font-size: 12px;
+  color: #888888;
+  padding: 12px 0;
+}
+.evaluate .mint-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: 0.2s ease-out;
+  transition: 0.2s ease-out;
+}
+.evaluate .sheetShare {
+  width: 100%;
+}
+.evaluate .sheetShare .swiper_img {
+  width: 100%;
+}
+.evaluate .sheetShare .swiper_img img {
+  width: 100%;
+}
+.evaluate .sheetShare .swiper-pagination-fraction {
+  font-size: 18px;
+  color: #FFFFFF;
+  position: static;
+  background: transparent;
+  margin-bottom: 27px;
+}
+
+
+.evaluateWrap{
+  width:100%; 
+  display: flex; 
+  display: -webkit-box; 
+  flex-direction: column;
+} 
+.evaluate_Item{ 
+  width: 300rpx; 
+  height: 300rpx; 
+  flex: 1;
+  margin: 20rpx 20rpx 0 0;
+} 
+.evaluate_Item_img{ 
+  width: 300rpx; 
+  height: 300rpx;
+}
+
+.loadMore{
+  color:#999;
+  font-size:26rpx;
+  border:.5px solid #ddd;
+  text-align:center;
+  margin:20rpx;
+  padding:20rpx;
+}
+
+.largerVisible{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.largerVisible .bg{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, .5);
+}
+.largerVisible .main{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+.largerVisible .main swiper{
+  height: 100%;
+}
+.largerVisible .main swiper image{
+  width: 80%;
+  margin-top: 100rpx;
+  margin-left: 10%;
+}
+.largerVisible .close{
+  position: fixed;
+  bottom: 90rpx;
+  left: 50%;
+  margin-left: -45rpx;
+  z-index: 99999;
+}
+.largerVisible .close image{
+  width: 90rpx;
+  height: 90rpx;
+}

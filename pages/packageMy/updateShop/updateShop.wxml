@@ -1,0 +1,24 @@
+<view class="section">
+  <view class="shelvePanel" wx:if="{{shopInfo}}">
+     <view class="title">
+       请确认更改绑定店铺信息
+     </view>
+     <view class="d1">
+       店铺ID<text>{{shopInfo.shop_id}}</text>
+     </view>
+     <view class="d1">
+       店铺名 <text>{{shopInfo.name}}</text>
+     </view>
+     <view class="d1">
+       昵称 <text>{{shopInfo.nickname}}</text>
+     </view>
+     <view class="d1" style="height: 140px;margin: 10px 0 10px 15px;">
+       微信头像 <image class='avatar' mode='widthFix' src="{{shopInfo.avatar}}" alt=""/>
+     </view>
+     <view class="openbtn" bindtap="changeShop">确定</view>
+  </view>
+  <view wx:else>
+    <input class='shoptx' type='text' bindinput="bindKeyInput" placeholder="请输入店铺ID"/>
+    <button class='btn' bindtap="updateBind">提交</button>
+  </view>
+</view>

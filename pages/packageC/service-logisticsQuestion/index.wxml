@@ -1,0 +1,24 @@
+<view class="my">
+  <view class="order">
+    <view class="helpq">请选择问题</view>
+    <view 
+      class="manage"
+      wx:key="index"
+      wx:for="{{listData.qa_list}}"
+      wx:for-item="q"
+      data-detail-type="{{q.detail_type}}"
+      data-qa-id="{{q.qa_id}}"
+      bindtap="jumpPage" >
+      {{q.title}}
+      <image 
+        class="olink" 
+        src="http://cdn.youlianyc.com/image/static/433b7a36f265ab4a0559b8eba910c008861e2a30.jpg"
+        mode="widthFix" />
+      <view
+        class="fixed-manage"
+        wx:if="{{q.detail_type === 100}}">
+        <button open-type="contact">在线客服</button>
+      </view>
+    </view>
+  </view>
+</view>

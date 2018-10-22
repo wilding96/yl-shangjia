@@ -1,0 +1,64 @@
+.wrapper{
+  position: absolute;
+  font-size: 28rpx;
+  color: #3a3a3a;
+	top: 0;
+	bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f7f7f7;
+}
+
+dl, dt, dd, p, div, header, article{
+	display: block;
+}
+
+.wrapper header{
+	padding: 20rpx 0;
+	text-align: center;
+	font-size: 24rpx;
+	line-height: 50rpx;
+	color: #4a4a4a;
+}
+
+.wrapper .form{
+	background-color: #fff;
+	padding: 0 32rpx 32rpx 32rpx;
+}
+.wrapper .form-list{
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 90rpx;
+	border-bottom: 2rpx solid #eae9e8;
+}
+.wrapper .form-list image{
+	position: absolute;
+	width:30rpx;
+	height:30rpx;
+	right:0;
+}
+.wrapper .form-list label{
+	width: 140rpx;
+}
+.wrapper .form-list input{
+	color: #000;
+}
+textarea{
+	width: 100%;
+	margin-top: 20rpx;
+}
+
+.save{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #de5241;
+	color: #fff;
+	font-size: 28rpx;
+	border-radius: 0;
+	border-bottom: none;
+	height: 100rpx;
+	line-height: 100rpx;
+}

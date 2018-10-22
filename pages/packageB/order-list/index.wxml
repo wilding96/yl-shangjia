@@ -1,0 +1,122 @@
+<view class="wrapper">
+  <view class="s">
+    <view class="header-tabs">
+    <view bindtap="statusTap" class="list-tabs {{index == currentType ? 'tab-select' : ''}}" wx:for="{{statusType}}" wx:key="{{index}}"  data-index="{{index}}">
+            <view class="{{tabClass[index]}}">{{item}}</view>
+        </view>
+    </view>
+  </view>
+  <view class="zhanwei"></view>
+  <scroll-view class="infinit-lists"  scroll-x="true">
+    <!-- <navigator wx:if="{{is_subscribe==0}}" url="{path: '/attention'}" class="attention">
+      <image class="ylicon" src="http://cdn.youlianyc.com/image/static/dab826be3335acd0bf0376f8a68e8c8c1fe75243.jpg" alt="" />
+      <view class="guanzhu">
+        <view class="yq">店长邀你关注"有练优品"公众号</view>
+        <view class="sub">派送提醒 · 领奖福利 · 客服服务</view>
+      </view>
+      <button type="button" name="button" class="gz">立即关注</button>
+    </navigator> -->
+    <view class="lists" wx:if="{{lists.length>0}}">
+      <view class="list" wx:key="index"  wx:for-item="l" wx:for="{{lists}}">
+        <view class="order-title">
+          <text class="tuanprice" wx:if="{{l.pin_state=='going'}}">拼单中</text>
+          <text class="tuanprice" wx:elif="{{l.pin_state=='success'}}">拼单成功</text>
+          <text class="tuanprice" wx:elif="{{l.pin_state=='fail'}}">拼单失败</text>
+          <view class="tid">订单号 {{l.id}} <text wx:if="{{l.order_type==5}}" style="vertical-align:top;">（开店订单）</text></view>
+          <view class="price">
+            <text class="order_state" wx:if="{{l.order_state==1}}">待付款</text>
+            <text class="order_state" wx:if="{{l.order_state==2}}">待发货</text>
+            <text class="order_state" wx:if="{{l.order_state==3}}">待收货</text>
+            <text class="order_state" wx:if="{{l.order_state==4}}">交易成功</text>
+            <text class="order_state" wx:if="{{l.order_state==5}}">交易关闭</text>
+            <text class="order_state" wx:if="{{l.order_state==6}}">出库中</text>
+          </view>
+        </view>
+        <view class="product" wx:for-item="p" wx:key="key" wx:for="{{l.products}}">      
+          <navigator url="../order-details/index?order_id={{l.id}}" class="p-detail">
+            <image class="picture" src="{{p.product_image}}" />
+            <view class="product-detail">
+              <view class="title"><text wx:if="{{p.is_giveaway==1}}" class="giveaway">赠品</text>{{p.product_title}}</view>
+              <view class="sku">
+                <text class="guige">{{p.sku_info}}</text>
+                <text class="quantity">x{{p.quantity}}件</text>
+              </view>
+              <view class="p-qu">
+                <text class="total_price">RMB {{p.unit_price}}</text>
+                <!-- <view class="jump-go">
+                  <view wx:if="{{l.order_state!=9}}">
+                    <view wx:if="{{p.product_state==1 && l.order_state!=1}}">
+                      <button class="normal-btn ">预售中</button>
+                    </view>
+                    <view wx:if="{{p.product_state==2}}">
+                      <button class="normal-btn ">待生产</button>
+                    </view>
+                    <view wx:if="{{p.product_state==3}}">
+                      <button class="normal-btn ">待发货</button>
+                    </view>
+                    <view wx:if="{{p.product_state==4}}">
+                      <button class="normal-btn ">已发货</button>
+                    </view>
+                    <view wx:if="{{p.product_state==5}}">
+                      <button class="normal-btn ">退款中</button>
+                    </view>
+                    <view wx:if="{{p.product_state==6}}">
+                      <button class="normal-btn ">退款成功</button>
+                    </view>
+                    <view wx:if="{{p.product_state==7}}">
+                      <button class="normal-btn ">售后中</button>
+                    </view>
+                    <view wx:if="{{p.product_state==8}}">
+                      <button class="normal-btn ">售后成功</button>
+                    </view>
+                  </view>
+                </view> -->
+              </view>
+            </view>
+          </navigator>
+        </view>
+        <view class="pay">
+          实付 <text class="totalPrice">{{l.grand_total_price}}</text>
+          <text class="cost"> (含运费{{l.shipping_cost}})</text>
+        </view>
+        <view class="order_btn " wx:if="{{l.order_state==1}}">
+          <view class="pay_time" wx:if="{{l.pay_left_time>0}}">
+              付款剩余：
+            <counter counter-class="detail" next-time="{{l.pay_left_time}}"></counter>
+          </view>
+          <view class="btn-cloumn">
+            <button class="normal-btn " data-type="cancel" id="{{l.id}}" bindtap="showModel">取消订单</button>
+            <button class="pay-btn" id="{{l.id}}" wx:if="{{l.pay_left_time!=0}}" bindtap="orderPay">立即支付</button>
+          </view>
+        </view>
+        <!-- <view class="order_btn" wx:if="{{l.order_state==3}}">
+          <view class="btn-cloumn">
+          <button 
+            data-url="../order-logistics/index?order_id={{l.id}}" 
+            class="normal-btn"
+            bindtap="jump">
+            查看物流
+          </button>
+          </view>
+        </view> -->
+        <view class="order_btn" wx:if="{{l.order_state==3}}">
+          <view class="btn-cloumn">
+            <!-- <button 
+              data-url="../order-logistics/index?order_id={{l.id}}"  
+              class="normal-btn"
+              bindtap="jump">
+              查看物流
+            </button> -->
+            <button class="normal-btn" data-type="confirm" id="{{l.id}}"  bindtap="showModel">确认收货</button>
+          </view>
+        </view>
+        <view class="order_btn" wx:if="{{l.order_state==5}}">
+          <view class="btn-cloumn">
+            <button class="normal-btn " data-type="hide" id="{{l.id}}" bindtap="showModel">删除订单</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="no-more-goods">{{message}}</view>
+</view>

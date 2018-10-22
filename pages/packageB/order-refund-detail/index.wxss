@@ -1,0 +1,120 @@
+.wrapper{
+  font-size: 28rpx;
+  color: #737373;
+  font-size: 26rpx;
+  font-family: "PingFangSC-Regular";
+}
+
+dl, dt, dd, p, header, article{
+	display: block;
+}
+
+.detail .bg{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #f5f5f5;
+}
+
+.detail .list{
+	position: absolute;
+	width: 100%;
+	padding-bottom: 100rpx;
+	left: 0;
+	top: 0;
+	z-index: 999;
+	background-color: #fff;
+}
+
+.detail .list article{
+	position: relative;
+}
+
+.detail .list article .triangle-left { 
+	position: absolute;
+	top: 80rpx;
+	left: 20rpx;
+	width: 0; 
+	height: 0; 
+	border-top: 16rpx solid transparent; 
+	border-bottom: 16rpx solid transparent; 
+} 
+
+.detail header{
+	width: 160rpx;
+	text-align: center;
+	margin: 52rpx auto 16rpx auto;
+	padding: 4rpx 0;
+	background-color: #f9f9f9;
+	font-size: 24rpx;
+	color: #b8b8b8;
+}
+
+.detail dl{
+	margin: 0 32rpx;
+	padding: 32rpx;
+	border-radius: 4rpx;
+	background-color: #f5f5f5;
+}
+/*.detail article:first-child dl dt{
+	text-align: right;
+}*/
+.detail dl dd p.line{
+	width: 74rpx;
+	height: 1px;
+	margin: 20rpx auto;
+	background-color: #dbdbdb;
+}
+
+.detail .pass dl{
+	background-color: #adb7bd;
+	color: #fff;
+}
+.detail .pass .triangle-left{
+	border-right: 20rpx solid #adb7bd;
+}
+
+.detail .success dl{
+	background-color: #bdb1ad;
+	color: #fff;
+}
+.detail .success .triangle-left{
+	border-right: 20rpx solid #bdb1ad;
+}
+
+.detail .pass dl dt, .detail .success dl dt{
+	text-align: left;
+}
+
+.tools{
+	position: fixed;
+	width: 100%;
+	height: 90rpx;
+	left: 0;
+	bottom: 0;
+	z-index: 999;
+	background-color: #fff;
+	display: flex;
+	justify-content: flex-end;
+}
+.tools button{
+	width: 156rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	margin: 15rpx 16rpx 0 0;
+	padding: 0;
+	border-radius: 0;
+	border: 1px solid #262626;
+	background-color: #fff;
+	font-size: 24rpx;
+	color: #777;
+}
+.tools button::after{
+	border: none;
+}
+/* 解决后台返回换行编译问题 */
+.info {
+  white-space: pre-wrap;
+}

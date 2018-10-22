@@ -1,0 +1,99 @@
+<view class="page">
+  <!-- 店铺模块 -->
+  <view class="storeInfo {{receive_status===2?'bg_received':'bg_receive'}}">
+    <view class="userProfile">
+      <image class="profileImg" src="{{supplier_info.avatar}}" alt=""
+      />
+    </view>
+    <view class="userName">
+      {{supplier_info.name}}
+    </view>
+  </view>
+  <!-- 优惠券模块 -->
+  <view class="couponContent" hover-class="none" hover-stop-propagation="false">
+    <!-- 优惠券内容 -->
+    <view class="couponInfo" hover-class="none" hover-stop-propagation="false">
+      <!-- 准备领取 -->
+      <view wx:if="{{receive_status === 1||receive_status === 3}}" class="unreceive" hover-class="none" hover-stop-propagation="false">
+        <view class="con" hover-class="none" hover-stop-propagation="false">
+          <view wx:if="{{coupon_info.coupon_type==1}}" class="price bg_red" hover-class="none" hover-stop-propagation="false">
+          <text class="symbol" selectable="false" space="false" decode="false">¥ </text>
+          <text class="num" selectable="false" space="false" decode="false">{{coupon_info.free_pay}}</text>
+          </view>
+          <view wx:if="{{coupon_info.coupon_type==2}}" class="price bg_red" hover-class="none" hover-stop-propagation="false">
+          
+            <text class="num" selectable="false" space="false" decode="false">{{coupon_info.pay_money}}元券</text>
+          </view>
+          <view wx:if="{{coupon_info.coupon_type==3}}" class="price bg_purple" hover-class="none" hover-stop-propagation="false">
+            <text class="num" selectable="false" space="false" decode="false">{{coupon_info.discount_rate}}折券</text>
+          </view>
+          <view class="name" hover-class="none" hover-stop-propagation="false">
+            <view class="name_x1 {{(coupon_info.coupon_type==2||coupon_info.coupon_type==3)?'center':''}}">
+              {{coupon_info.title}}
+            </view>
+            <view wx:if="{{coupon_info.coupon_type==1}}" class="name_x2">
+                满{{coupon_info.least_pay}}元可用
+            </view>
+          </view>
+        </view>
+        <view class="time" hover-class="none" hover-stop-propagation="false">
+          有效期：{{coupon_info.start_time}} ~ {{coupon_info.end_time}}
+        </view>
+        <button class="toReceive {{(coupon_info.coupon_type==1||coupon_info.coupon_type==2)?'bg_red':'bg_purple'}}" bindtap="receiveNow" type="default"
+          hover-class="button-hover" hover-stop-propagation="false" >
+           立即领取
+        </button>
+      </view>
+      <!-- 已领取 -->
+      <view wx:if="{{receive_status === 2}}" class="received" hover-class="none" hover-stop-propagation="false">
+        <view class="icon" hover-class="none" hover-stop-propagation="false">
+          <image class="img" src="http://cdn.youlianyc.com/image/static/05386313232994b5bbcbc3943ed7c034b31bf3bb.jpg"></image>
+        </view>
+        <view class="title1" hover-class="none" hover-stop-propagation="false">
+          恭喜您领取成功
+        </view>
+        <view class="title2" hover-class="none" hover-stop-propagation="false">
+          优惠券已发放，请您及时使用
+        </view>
+        <button class="toUse {{(coupon_info.coupon_type==1||coupon_info.coupon_type==2)?'bg_red':'bg_purple'}}" bindtap="useNow" hover-class="none" hover-stop-propagation="false">
+          立即使用
+        </button>
+      </view>
+    </view>
+    <!-- 分割线 -->
+    <view class='divider'>
+      <image class="img" src="http://cdn.youlianyc.com/image/static/22c87321bec147a770ef147e53af24b5d53d5cd0.jpg" mode="widthFix" lazy-load="false" binderror="" bindload="">
+        
+      </image>
+    </view>
+    <!-- 商品内容 -->
+    <view class="productInfo" hover-class="none" hover-stop-propagation="false">
+      <view class="pro_info" hover-class="none" hover-stop-propagation="false">
+        <view class="pic" hover-class="none" hover-stop-propagation="false">
+          <image class="img" src="{{product_info.img}}" mode="widthFix" lazy-load="false" binderror="" bindload="">
+            
+          </image>
+        </view>
+        <view class="con" hover-class="none" hover-stop-propagation="false">
+          <view class="title" hover-class="none" hover-stop-propagation="false">
+            {{product_info.title}}
+          </view>
+          <view class="introduce" hover-class="none" hover-stop-propagation="false">
+            {{product_info.sub_title}}
+          </view>
+          <view class="old_price" hover-class="none" hover-stop-propagation="false">
+            现价：¥{{product_info.price}}
+          </view>
+          <view class="now_price" hover-class="none" hover-stop-propagation="false">
+            <view class="text_bg" hover-class="none" hover-stop-propagation="false">
+                用券后:
+            </view>
+             ¥ <view class="price_big" hover-class="none" hover-stop-propagation="false">
+                {{product_info.after_price}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

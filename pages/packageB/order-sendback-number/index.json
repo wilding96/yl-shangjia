@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText":"填写寄回单号",
+    "usingComponents": {
+      "counter": "/pages/component/counter/counter"
+    }
+}

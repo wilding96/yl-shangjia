@@ -1,0 +1,97 @@
+{
+  "pages": [
+    "pages/tabbar/shop-list/index",
+    "pages/tabbar/my/index",
+    "pages/tabbar/cart/index",
+    "pages/tabbar/login/login"
+  ],
+  "subPackages": [
+    {
+      "root": "pages/packageA",
+      "pages": [
+        "search/search",
+        "shop-detail/index",
+        "order-verify/verify",
+        "pay-result/payResult"
+      ]
+    },
+    {
+      "root": "pages/packageB",
+      "pages": [
+        "order-list/index",
+        "order-details/index",
+        "order-refund/index",
+        "order-refund-detail/index",
+        "order-evaluate/index",
+        "order-afterSale/index",
+        "order-changeLocation/index",
+        "order-logistics/index",
+        "order-sendback-number/index",
+        "address/index/index",
+        "address/add/index",
+        "activity/template1/index",
+        "merchant-enter/index"
+      ]
+    },
+    {
+      "root": "pages/packageC",
+      "pages": [
+        "service-chooseProduct/index",
+        "service-chooseQuestion/index",
+        "service-workAfterSale/index",
+        "service-submitWorkOrder/index",
+        "service-workOrderList/index",
+        "service-workOrderDetail/index",
+        "service-addWorkOrder/index",
+        "service-logisticsQuestion/index"
+      ]
+    },
+    {
+      "root": "pages/blackCard",
+      "pages": [
+        "card/card",
+        "cardPay/cardPay",
+        "cardRule/cardRule"
+      ]
+    },
+    {
+      "root": "pages/packageMy",
+      "pages": [
+        "liandou/index",
+        "liandouHelp/help",
+        "coupon/couponlist",
+        "updateShop/updateShop",
+        "coupon-details/index"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "#000",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "#fff",
+    "onReachBottomDistance": "50px",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#333",
+    "borderStyle": "#fff",
+    "backgroundColor": "#fff",
+    "box-shadow": "0 0 6px 0",
+    "list": [
+      {
+        "pagePath": "pages/tabbar/shop-list/index",
+        "iconPath": "images/nav/store-home-off.png",
+        "selectedIconPath": "images/nav/store-home.png",
+        "text": "商家首页"
+      },
+      {
+        "pagePath": "pages/tabbar/my/index",
+        "iconPath": "images/nav/my-off.jpg",
+        "selectedIconPath": "images/nav/my-on.jpg",
+        "text": "个人中心"
+      }
+    ]
+  }
+}

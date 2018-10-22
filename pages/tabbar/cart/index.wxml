@@ -1,0 +1,362 @@
+<view class="cart">
+  <view class="shipTitle" wx:if="{{shipTitle!=''}}">{{shipTitle}}</view>
+
+  <!-- 购物车中商品 -->
+  <view wx:if="{{list.length>0}}">
+    <!-- <router-link :to="{path: '/shoplist?s='+shop_id}" class="freecost">
+      全场满58包邮
+      <label class="g">再逛逛></label>
+    </router-link>
+    <view class="" style="height:30px;"></view> -->
+    <view 
+      class="shop" 
+      wx:key="index" 
+      wx:for="{{list}}" 
+      wx:for-item="b">
+      <!-- 店铺消息 -->
+      <view 
+        bindtap="jump"
+        data-url="../shop-list/index"
+        class="shopname">
+        <view class="righticon">
+          <view
+            data-index="{{index}}" 
+            catchtap="selectShopOrSku" 
+            class="iconcheck">
+            <image 
+              wx:if="{{b.is_selected==1}}" 
+              mode="widthFix"
+              style="width: 18px; margin-bottom: -4px;"
+              src="https://cdn.youlianyc.com/image/static/fceb8d4948c127444bc3f4cbefc882a74c483676.png">
+            </image>
+            <image 
+              wx:else 
+              mode="widthFix"
+              style="width: 18px; margin-bottom: -4px;"
+              src="https://cdn.youlianyc.com/image/static/201fbdff3d40ab2a1dd24bf0b5ef5156f8586a1e.png">
+            </image>
+          </view>{{b.block_title}}
+        </view>
+      </view>
+      <!-- 购物车商品 -->
+      <view 
+        class="product" 
+        :class="{line: i!=b.products.length-1}" 
+        wx:key="indexProducts"
+        wx:for-index="indexProducts"
+        wx:for="{{b.products}}"  
+        wx:for-item="l">
+        <view class="p-detail">
+          <image 
+            data-index="{{index}}"
+            data-i="{{indexProducts}}"
+            data-pt="products"
+            catchtap="selectShopOrSku" 
+            wx:if="{{l.is_selected==1}}" 
+            class="checkbtn" 
+            style="width: 15px;"
+            mode="widthFix"
+            src="https://cdn.youlianyc.com/image/static/fceb8d4948c127444bc3f4cbefc882a74c483676.png">
+          </image>
+          <image 
+            data-index="{{index}}"
+            data-i="{{indexProducts}}"
+            data-pt="products"
+            catchtap="selectShopOrSku" 
+            wx:else 
+            class="checkbtn" 
+            style="width: 15px;"
+            mode="widthFix"
+            src="https://cdn.youlianyc.com/image/static/201fbdff3d40ab2a1dd24bf0b5ef5156f8586a1e.png">
+          </image>
+          <view 
+            class="plink" 
+            data-product-id="{{l.product_id}}"
+            data-shop-id="{{l.shop_id}}"
+            catchtap="jumpCdetail">
+            <image 
+              class="picture" 
+              src="{{l.image}}"
+              mode="widthFix">
+            </image>
+          </view>
+          <view class="product-detail">
+            <view class="title">
+              {{l.product_title}}
+            </view>
+            <button 
+              data-id="{{l.id}}"
+              catchtap="deleteSku" 
+              class="delete" 
+              type="button">
+              删
+            </button>
+            <view class="sku">{{l.sku_info}}</view>
+            <view class="decrease" wx:if="{{l.decrease_money>0 && l.decrease_desc}}">
+                <view class="desc">{{l.decrease_desc}}</view>
+                <view class="money">比加入时降 ￥{{l.decrease_money}}</view>
+              </view>
+            <view class="p-qu">
+              <view class="total_price">
+                <label class="price_family">￥ {{l.unit_price}}</label>
+              </view>
+            </view>
+            <view class="quantity">
+              <label class="subtract disabled" wx:if="{{l.quantity==1 || l.is_selected==0}}" disabled>-</label>
+              <label 
+                class="subtract" 
+                data-index="{{index}}"
+                data-pindex=""
+                data-i="{{indexProducts}}"
+                data-type="subtract"
+                data-pt="products"
+                catchtap="quantityAjax" 
+                wx:else>-</label>
+              <span class="num">{{l.quantity}}</span>
+              <label class="add disabled" wx:if="{{l.quantity>=l.limit || l.is_selected==0}}" disabled>+</label>
+              <label 
+                class="add" 
+                data-index="{{index}}"
+                data-pindex=""
+                data-i="{{indexProducts}}"
+                data-type="add"
+                data-pt="products"
+                catchtap="quantityAjax" 
+                wx:else>+</label>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 活动促销商品 -->
+      <view 
+        wx:if="{{b.promotion.length>0}}"
+        wx:key="pindex"
+        wx:for-index="pindex"
+        wx:for="{{b.promotion}}"  
+        wx:for-item="m">
+        <view 
+          :class="{'lineTop':b.products.length>0}" 
+          class="promotion">
+          <!-- catchtap="jumpPopupSale(m.promotion_optional_id,b.shop_id)" -->
+          <label class="tag">{{m.promotion_title}}</label>
+          {{m.promotion_title_desc}}
+        </view>
+        <view 
+          class="product" 
+          :class="{line: i!=m.product.length-1}" 
+          wx:key="i"
+          wx:for-index="i"
+          wx:for="{{m.product}}"  
+          wx:for-item="l"
+          >
+          <view class="p-detail">
+            <image 
+              data-index="{{index}}"
+              data-i="{{i}}"
+              data-pt="promotion"
+              data-pindex="{{pindex}}"
+              catchtap="selectShopOrSku" 
+              wx:if="{{l.is_selected==1}}" 
+              class="checkbtn" 
+              style="width: 15px;"
+              mode="widthFix"
+              src="https://cdn.youlianyc.com/image/static/fceb8d4948c127444bc3f4cbefc882a74c483676.png">
+            </image>
+            <image 
+              data-index="{{index}}"
+              data-i="{{i}}"
+              data-pt="promotion"
+              data-pindex="{{pindex}}"
+              catchtap="selectShopOrSku" 
+              wx:else 
+              class="checkbtn" 
+              style="width: 15px;"
+              mode="widthFix"
+              src="https://cdn.youlianyc.com/image/static/201fbdff3d40ab2a1dd24bf0b5ef5156f8586a1e.png">
+            </image>
+            <view 
+              class="plink" 
+              data-product-id="{{l.product_id}}"
+              data-shop-id="{{l.shop_id}}"
+              catchtap="jumpCdetail">
+              <image 
+                class="picture" 
+                mode="widthFix"
+                src="{{l.image}}">
+              </image>
+            </view>
+            <view class="product-detail">
+              <view class="title">
+                {{l.product_title}}
+              </view>
+              <button 
+                data-id="{{l.id}}"
+                catchtap="deleteSku" 
+                class="delete" 
+                type="button">
+                删
+              </button>
+              <view class="sku">{{l.sku_info}}</view>
+              <view class="decrease" wx:if="{{l.decrease_money>0 && l.decrease_desc}}">
+                <view class="desc">{{l.decrease_desc}}</view>
+                <view class="money">比加入时降 ￥{{l.decrease_money}}</view>
+              </view>
+              <view class="p-qu">
+                <view class="total_price">
+                  <label class="price_family">￥ {{l.unit_price}}</label>
+                </view>
+              </view>
+              <view class="quantity">
+                <label class="subtract disabled" wx:if="{{l.quantity==1 || l.is_selected==0}}" disabled>-</label>
+                <label 
+                  class="subtract"
+                  data-index="{{index}}"
+                  data-pindex="{{pindex}}"
+                  data-i="{{i}}"
+                  data-type="subtract"
+                  data-pt="promotion"
+                  catchtap="quantityAjax"
+                  wx:else>-</label>
+                <span class="num">{{l.quantity}}</span>
+                <label class="add disabled" wx:if="{{l.quantity>=l.limit || l.is_selected==0}}" disabled>+</label>
+                <label 
+                  class="add" 
+                  data-index="{{index}}"
+                  data-pindex="{{pindex}}"
+                  data-i="{{i}}"
+                  data-type="add"
+                  data-pt="promotion"
+                  catchtap="quantityAjax" 
+                  wx:else>+</label>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view class="cartnull" wx:if="{{list.length<=0}}">
+    <view class="title">购物车空空如也</view>
+    <view class="subtitle">快来选点好物，填满购物车~</view>
+    <image class="cicon" mode="widthFix" style="width: 180px" src="http://cdn.youlianyc.com/image/static/8bf8a4ac34f7419f3cb4e5682ef317913e0f3e5d.jpg"></image>
+    <navigator 
+      class="shopgo" 
+      open-type="switchTab"
+      url="/pages/tabbar/shop-list/index">
+      店主精选
+    </navigator>
+  </view>
+  <view wx:if="{{invalidItems.length>0}}" class="shop lose">
+    <!-- 失效的宝贝 -->
+    <view class="shopname">
+      <view class="losep">
+        已失效的宝贝
+        <button 
+          catchtap="delectInvite" 
+          class="delproduct" 
+          type="button">
+          清空失效宝贝
+        </button>
+      </view>
+    </view>
+    <view 
+      class="product" 
+      wx:key="index" 
+      wx:for="{{invalidItems}}" 
+      wx:for-item="item">
+      <view class="p-detail">
+        <view 
+          class="plink" 
+          data-product-id="{{l.product_id}}"
+          data-shop-id="{{l.shop_id}}">
+          <image 
+            class="picture" 
+            src="{{item.image}}"
+            mode="widthFix">
+          </image>
+        </view>
+        <view class="product-detail">
+          <view class="title">
+            {{item.product_title}}
+          </view>
+          <view class="sku">{{item.sku_info}}</view>
+          <view class="decrease" wx:if="{{item.decrease_money>0 && item.decrease_desc}}">
+            <view class="desc">{{item.decrease_desc}}</view>
+            <view class="money">比加入时降 ￥{{item.decrease_money}}</view>
+          </view>
+          <view class="p-qu">
+            <view class="total_price">
+              <label class="price_family">￥ {{item.unit_price}}</label>
+            </view>
+          </view>
+        </view>
+        <image 
+          class="sellout" 
+          mode="widthFix"
+          src="http://cdn.youlianyc.com/image/static/432c60edd78ee4f723f2272da12228fe572a5cf3.jpg"></image>
+      </view>
+    </view>
+  </view>
+  <view 
+    class="fix-bottom" 
+    :style="{'bottom':iphonex?'64px':'49px'}" 
+    wx:if="{{list.length>0}}">
+    <view 
+      class="y518" 
+      catchtap="jump(intro_518_url)" 
+      wx:if="{{tag_518==1}}">
+      <view 
+        class="desc" 
+        wx:key="index" 
+        wx:for="{{year_desc}}" 
+        wx:for-item="desc">
+        <label 
+          :style="{color: c.color==1?'#fff':c.color==2?'#FF274A':'#FFF655'}" 
+          class="buy518" 
+          wx:key="index" 
+          wx:for="{{desc}}" 
+          wx:for-item="c">{{c.desc}}</label>
+      </view>
+      <view class="tip">
+        ( 5.18周年庆直击底价,不支持使用优惠券和练豆)
+      </view>
+    </view>
+    <view class="bottom-confirm">
+      <view class="price">
+        <view class="allcheck">
+          <image 
+            catchtap="checkAll" 
+            wx:if="{{is_all_selected==1}}" 
+            class="xuanicon" 
+            mode="widthFix"
+            style="width: 15px;"
+            src="http://cdn.youlianyc.com/image/static/939ad93ee501169aeb6c34dfa2df211290673c64.jpg">
+          </image>
+          <image 
+            catchtap="checkAll" 
+            wx:else 
+            class="xuanicon" 
+            mode="widthFix"
+            style="width: 15px;"
+            src="https://cdn.youlianyc.com/image/static/201fbdff3d40ab2a1dd24bf0b5ef5156f8586a1e.png">
+          </image>
+          全选
+        </view>
+        <view class="total_price">
+          <view class="weightprice">
+            <label>{{discount_flag==1?'折后价':'总计'}}</label>：￥ {{totalPrice}}
+          </view>
+          <view wx:if="{{discount_flag==1}}" class="tp">
+            总额：￥{{(totalPrice + totalReward)}}，立减：{{totalReward}}元
+          </view>
+        </view>
+      </view>
+      <view 
+        class="buy" 
+        catchtap="confirmBuy">
+        结算
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+/* pages/component/counter/counter.wxss */
+/*首页会员倒计时  */
+.index {
+  color: #333;
+  font-family: Helvetica-Bold;
+}
+.index  {
+  color: #333;
+}
+.index .hour, .index .mins,.index .ss{
+  background: #333;
+  height: 16px;
+  text-align: center;
+  padding: 0 1px;
+  line-height: 16px;
+  border-radius: 2px;
+  font-family: PingFangSC-Regular;
+  font-size: 11px;
+  color: #fff;
+}
+/*详情页倒计时  */
+.detail {
+  display: inline-block;
+}
+.hour, .mins, .ss {
+  margin-right: 5px;
+}
+

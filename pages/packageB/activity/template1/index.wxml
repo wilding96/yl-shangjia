@@ -1,0 +1,197 @@
+<view>
+  <view 
+    class="m" 
+    wx:if="{{payload!=''}}" 
+    style="background-color: {{payload.bg_color}};">
+    <view>
+      <!-- 回到顶部 -->
+      <image 
+        mode="widthFix"
+        class="scrollTop" 
+        bindtap="pageScrollTop"
+        src="http://cdn.youlianyc.com/image/static/ddb93d7ae36177b5380a286cbff58807158bc42f.jpg">
+      </image>
+      <!-- 店铺悬浮信息 -->
+      <div 
+        class="shop"
+        data-shop-id="{{payload.shop_info.shop_id}}"
+        bindtap="goHome">
+        逛逛小店
+        <image
+          mode="widthFix"
+          class="simg"
+          src="{{payload.shop_info.shop_icon}}">
+        </image>
+      </div>
+      <!-- 购物车 -->
+      <div 
+        class="cart"
+        data-shop-id="{{payload.shop_info.shop_id}}"
+        bindtap="goCart">
+        <view class="number" for="" wx:if="{{cart<10}}">{{cart}}</view>
+        <view class="number" for="" wx:else>···</view>
+        <image 
+          mode="widthFix"
+          class="simg" 
+          src="http://cdn.youlianyc.com/image/static/9307177d280414e42fdf2b275e04bf1b958acc39.jpg!107x107p">
+        </image>
+      </div>
+      <!-- 顶部banner -->
+      <image 
+        mode="widthFix"
+        class="banner"
+        src="{{payload.main_image}}">
+      </image>
+    </view>
+
+    <!-- 领取优惠券 -->
+    <div
+      class="coupon" 
+      wx:if="{{payload.coupon_ids!=''}}"
+      data-id="{{payload.coupon_ids}}"
+      bindtap="getCoupons">
+      <image 
+        mode="widthFix"
+        class="cimg"
+        src="{{payload.coupon_image}}">
+      </image>
+    </div>
+
+    <!-- 自定义区域 -->
+    <div 
+      wx:for="{{payload.custom_pic_info}}" 
+      wx:key="index"
+      wx:for-index="index" 
+      wx:for-item="item"
+      class="giftAnchor">
+      <image 
+        mode="widthFix"
+        class="gimg" 
+        src="{{item.image+'!1125'}}">
+      </image>
+    </div>
+
+    <!-- 顶部商品区域 -->
+    <!-- <div 
+      wx:for="{{payload.top_products}}" 
+      wx:key="index"
+      wx:for-index="index"
+      wx:for-item="item"
+      class="giftAnchor">
+      <image
+        class="gimg"
+        wx:if="item.type=='img'"
+        src="{{item.image+'!1125'}}">
+      </image>
+      <iframe 
+        class="video"
+        wx:if="item.type=='video'"
+        frameborder="0"
+        width="100%"
+        height="280"
+        :src="item.video_url"
+        allowfullscreen
+        scrolling="auto">
+      </iframe>
+    </div> -->
+
+    <!-- 顶部菜单 -->
+    <!-- <div 
+      class="category" 
+      style="background-color': {{payload.category_tab.bg_def_col}}" 
+      :class="{'fixtop': scrollTop>5710}" 
+      wx:if="payload.category_titles.length>1 && !!payload.category_titles[0].name">
+
+      <swiper
+        options="{{categorySwiper}}">
+        <swiper-slide :key="index" v-for="(c,index) in payload.category_titles">
+          <a :href="'#'+c.anchor"  class="cate jscate"  :style="{'color': payload.category_tab.font_def_col,'borderRightColor': payload.category_tab.font_def_col, 'backgroundColor': payload.category_tab.bg_def_col}">{{c.name}}</a>
+        </swiper-slide>
+      </swiper>
+    </div>
+    <div class="zhanwei" wx:if="scrollTop>5710 && payload.category_titles.length>1"></div> -->
+
+    <!-- 商品区域 -->
+    <a 
+      class="list" 
+      :name="l.anchor_id" 
+      wx:for="{{payload.categories}}" 
+      wx:key="index"
+      wx:for-index="index" 
+      wx:for-item="l">
+      <view 
+        class="head"
+        vx:if="{{l.category_titles.length > 0}}">
+        <view class="titlePos" style="color: {{l.name_font_color}}">
+          <view class="onetitle">{{l.category_titles[0]}}</view>
+          <view class="onetitle1">{{l.category_titles[1]}}</view>
+        </view>
+        <view class="twotitle" style="color: {{l.name_bg_color}}">YOU LIAN</view>
+      </view>
+      <view 
+        class="product" 
+        wx:if="{{index%2==0}}" 
+        wx:for="{{l.products}}" 
+        wx:key="index"
+        wx:for-index="index" 
+        wx:for-item="p">
+        <view 
+          class="l"
+          data-shop-id="{{p.product_id}}"
+          catchtap="goDetail">
+          <image 
+            class="picon" 
+            mode="widthFix"
+            src="{{p.image+'!375x375c'}}">
+          </image>
+          <view class="ptitle">{{p.title}}</view>
+          <view class="price">
+            ￥{{p.price}}
+            <!-- <label wx:if="Number(payload.shop_info.shop_id) == bShopId" class="reward">
+              /赚 ￥{{p.reward}}
+            </label> -->
+            <image 
+              class="carticon" 
+              mode="widthFix"
+              data-sku-id="{{p.sku_id}}"
+              data-product-id="{{p.product_id}}"
+              catchtap="addToCart"
+              src="http://cdn.youlianyc.com/image/static/0d0445e6dcfb902fe9fa757dac5ce742f7449e71.jpg">
+            </image>
+          </view>
+
+        </view>
+        <view 
+          class="l" 
+          wx:if="{{l.products[index+1].image}}"
+          data-shop-id="{{l.products[index+1].product_id}}"
+          catchtap="goDetail">
+          <image 
+            class="picon" 
+            mode="widthFix"
+            src="{{l.products[index+1].image+'!375x375c'}}">
+          </image>
+          <view class="ptitle">{{l.products[index+1].title}}</view>
+          <view class="price">
+            ￥{{l.products[index+1].price}}
+            <!-- <label class="reward" wx:if="Number(payload.shop_info.shop_id) == bShopId">
+              /赚 ￥{{l.products[index+1].reward}}
+            </label> -->
+            <image 
+              class="carticon" 
+              mode="widthFix"
+              data-sku-id="{{l.products[index+1].sku_id}}"
+              data-product-id="{{l.products[index+1].product_id}}"
+              catchtap="addToCart"
+              src="http://cdn.youlianyc.com/image/static/0d0445e6dcfb902fe9fa757dac5ce742f7449e71.jpg">
+            </image>
+          </view>
+
+        </view>
+      </view>
+      <!-- <div class="lookall" @click.stop="jump('/shoplist')" wx:if="payload.is_shopkeeper !== 1">
+        <div class="look">查看店长精选</div>
+      </div> -->
+    </a>
+  </view>
+</view>

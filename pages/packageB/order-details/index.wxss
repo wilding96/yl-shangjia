@@ -1,0 +1,326 @@
+.page-content {
+  background: #f5f5f5;
+  padding: 0 0 50px;
+}
+
+.page-content .shop_order {
+  height: 40px;
+  width: 100%;
+  line-height: 40px;
+  background-color: #fff;
+  text-align: center;
+  color: #3a3a3a;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.oncecopy {
+  background-color: #d43c33;
+  font-size: 12px;
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 3px;
+  border: none;
+}
+
+.line {
+  background: url("//qianka-fx.oss-cn-hangzhou.aliyuncs.com/kagou_app/images/911982b34595339962aee5ed538ebfea95bdb664.png") center bottom no-repeat;
+  background-size: 40px;
+  margin: 0 auto;
+}
+
+.price_family {
+  font-family: DINMittelschriftStd;
+  font-weight: 700;
+}
+
+.porder {
+  height: 48px;
+  padding: 13px 15px;
+  background: #fff;
+  position: relative;
+}
+
+.porder .tuanprice {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #B34852;
+  background: rgba(201, 94, 94, 0.2);
+  padding: 2px 5px;
+  margin-right: 5px;
+  vertical-align: top;
+}
+
+.porder .no {
+  height: 24px;
+  line-height: 24px;
+  font-size: 12px;
+  color: #3A3A3A;
+}
+
+.porder .no .copypar {
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+  height: 11px;
+  line-height: 11px;
+  padding: 2px 5px;
+}
+
+.porder .no .copy {
+  border-radius: 1px;
+  text-align: center;
+  font-size: 11px;
+  color: #888;
+  display: inline-block;
+}
+
+.porder .order_date {
+  font-size: 12px;
+  color: #888888;
+  line-height: 24px;
+  height: 24px;
+}
+
+.porder .order_status {
+  position: absolute;
+  right: 15px;
+  top: 35px;
+  font-size: 12px;
+  color: #D43C33;
+  line-height: 22px;
+}
+
+.porder .status_fail {
+  color: #aaa;
+}
+
+.ship {
+  background: #fff;
+  margin: 10px 0;
+}
+
+.ship .sname {
+  height: 35px;
+  line-height: 35px;
+  font-size: 14px;
+  color: #3a3a3a;
+  position: relative;
+  padding: 0 16px;
+}
+
+.ship .sname image {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 16px;
+  top: 10px;
+}
+
+.ship .shipc {
+  margin-left: 16px;
+  border-top: 1px solid #ececec;
+  padding: 10px 0;
+}
+
+.ship .shipc .ship_name {
+  font-size: 14px;
+  color: #3A3A3A;
+  min-height: 35px;
+  line-height: 35px;
+}
+
+.ship .shipc .ship_name .shipto_name {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 151px;
+  vertical-align: top;
+}
+
+.ship .shipc .ship_address {
+  font-size: 12px;
+  color: #888888;
+  line-height: 20px;
+}
+
+.product {
+  min-height: 140px;
+  background-color: #fff;
+  padding: 0 16px;
+}
+
+.product .p-detail {
+  padding: 16px 0;
+}
+
+.product .p-detail .picture {
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+}
+
+.product .p-detail .product-detail {
+  width: 65%;
+  vertical-align: top;
+  display: inline-block;
+  margin-left: 13px;
+}
+
+.product .p-detail .product-detail .title {
+  font-size: 14px;
+  color: #3A3A3A;
+  height: 20px;
+  line-height: 20px;
+  width: 100%;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product .p-detail .product-detail .title .giveaway {
+  border: 1px solid #D69867;
+  display: inline-block;
+  width: 34px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  font-size: 10px;
+  color: #D69867;
+  margin-right: 6px;
+  vertical-align: top;
+}
+
+.product .p-detail .product-detail .sku {
+  font-size: 12px;
+  color: #888888;
+  margin-top: 4px;
+}
+
+.product .p-detail .product-detail .sku .quantity {
+  font-size: 12px;
+  color: #888;
+  float: right;
+}
+
+.product .p-detail .product-detail .product_btn {
+  border: 1px solid #3A3A3A;
+  border-radius: 3px;
+  margin-top: 10px;
+  padding: 0 10px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-size: 11px;
+  color: #3A3A3A;
+  background: #fff;
+  float: right;
+}
+
+.product .p-detail .product-detail .p-qu {
+  font-size: 12px;
+  color: #3A3A3A;
+}
+
+.product .p-detail .product-detail .p-qu .total_price {
+  font-family: DINMittelschriftStd;
+  font-size: 14px;
+  color: #3A3A3A;
+  line-height: 25px;
+}
+
+.product .p-detail .product-detail .p-qu .real_price {
+  font-family: DINMittelschriftStd;
+  font-size: 14px;
+  color: #D43C33;
+}
+
+.total {
+  margin-top: 10px;
+  background: #fff;
+  padding: 20px 15px 0;
+}
+
+.total .order_total {
+  padding-bottom: 14px;
+  font-size: 14px;
+  color: #3A3A3A;
+}
+
+.total .order_total .order_price {
+  float: right;
+  font-family: DINMittelschriftStd;
+  font-size: 14px;
+  color: #3A3A3A;
+}
+
+.order_time {
+  font-size: 12px;
+  color: #888888;
+  line-height: 23px;
+  background: #fff;
+  padding: 0 15px 29px;
+}
+
+.order_time p {
+  margin: 0;
+}
+
+.fix_btn {
+  position: fixed;
+}
+
+.detail_btn {
+  background: #fff;
+  width: 100%;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.btn_link {
+  height: 50px;
+  background: #fff;
+  text-align: right;
+  padding: 0 15px;
+  border-top: 1px solid #eee;
+}
+
+.btn_link .btndiv {
+  position: relative;
+  display: inline-block;
+  margin-right: 5px;
+  margin-top: 10px;
+  vertical-align: middle;
+}
+
+.btn_link button, .btn_link .order_normal {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: none;
+  padding: 0;
+  width: 77px;
+  text-decoration: inherit;
+}
+
+.btn_link .order_normal {
+  border-radius: 1px;
+  font-size: 12px;
+  color: #3A3A3A;
+  background: #fff;
+}
+
+.btn_link .order_pay {
+  background: #d43c33;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #FFFFFF;
+  height: 30px;
+  line-height: 30px;
+}
+
+/*# sourceMappingURL=b.css.map */

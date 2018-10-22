@@ -1,0 +1,14 @@
+<!--pages/login/login.wxml-->
+<view class="authorize-contianer">
+  <view class="auto-img">
+    <image class="authorize-icon" src="http://cdn.youlianyc.com/image/static/6c227eb4f58dbaf059a5ad651a483e6cb6dd1ebb.jpg"/>
+    <view class="auto-title">
+      <text class="t1">有练商家</text>
+      <text class="t2">带你买遍全球好物</text>
+    </view>
+  </view>
+  <view class="auth-item">- 有练过，更懂生活 -</view>
+  <view class="btn-authorize">
+    <button class="btn" open-type="getUserInfo" type="primary" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">微信授权登录</button>
+  </view>
+</view>

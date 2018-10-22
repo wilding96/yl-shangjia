@@ -1,0 +1,60 @@
+<view class="my">
+  <view class="s_name" wx:if="{{listData.authorized == 0}}">
+    <view class="tip">登录后看到最好看的自己</view>
+    <view class="levent" bindtap="login()">立即登录</view>
+  </view>
+  <view class="s_name {{listData.has_vip==1?'vip':''}}" wx:else>
+    <view class="avimg">
+      <image class="avatar" mode='widthFix' src="{{listData.user_info.img}}" alt="" />
+    </view>
+    <view>{{listData.user_info.name}}</view>
+    <view style="font-size: 12px;">
+      用户ID: {{listData.user_info.user_id}}
+    </view>
+  </view>
+  <view class="order">
+    <navigator url='./../../packageB/order-list/index?state=all' class="manage">
+      订单管理
+      <view class="olink">全部订单
+        <image mode="widthFix" src="http://cdn.youlianyc.com/image/static/433b7a36f265ab4a0559b8eba910c008861e2a30.jpg" alt="" />
+      </view>
+    </navigator>
+
+    <view class="ostatus">
+      <navigator url='./../../packageB/order-list/index?state=topay' class="s">
+        <image src="http://cdn.youlianyc.com/image/static/888aee693ef034cfcf41520a4e44ad850b0479cd.jpg" alt="" /> 待付款
+        <text class='s_num' wx:if="{{listData.order_info.wait_pay>0}}">{{listData.order_info.wait_pay}}</text>
+      </navigator>
+      <navigator url='./../../packageB/order-list/index?state=toship' class="s">
+        <image src="http://cdn.youlianyc.com/image/static/5bcc78b376c93e107519a5ce8ab2c609ac70dbcc.jpg" alt="" /> 待发货
+        <text class='s_num' wx:if="{{listData.order_info.wait_send>0}}">{{listData.order_info.wait_send}}</text>
+      </navigator>
+      <navigator url='./../../packageB/order-list/index?state=shipping' class="s">
+        <image src="http://cdn.youlianyc.com/image/static/70684573ff9eff68f56ba81023392e98374f9991.jpg" alt="" /> 待收货
+        <text class='s_num' wx:if="{{listData.order_info.wait_accept>0}}">{{listData.order_info.wait_accept}}</text>
+      </navigator>
+      <navigator url='./../../packageB/order-list/index?state=completed' class="s">
+        <image src="http://cdn.youlianyc.com/image/static/bc76747ad5baa16bd279d9d8839e0b071098eeac.jpg" alt="" /> 已完成
+      </navigator>
+    </view>
+  </view>
+
+  <!-- 我的功能列表 -->
+  <view class="order">
+    <view data-url="./../../packageB/address/index/index?type=manage" bindtap="jump" class="manage">管理收货地址
+      <view class="olink">
+        <image mode="widthFix" src="http://cdn.youlianyc.com/image/static/433b7a36f265ab4a0559b8eba910c008861e2a30.jpg" alt="" />
+      </view>
+    </view>
+    <button class="manage managebtn" open-type="contact">联系客服
+      <view class="olink">
+        <image mode="widthFix" src="http://cdn.youlianyc.com/image/static/433b7a36f265ab4a0559b8eba910c008861e2a30.jpg" alt="" />
+      </view>
+    </button>
+    <view data-url="./../../packageB/merchant-enter/index" bindtap="jump" class="manage">商家入驻
+      <view class="olink">
+        <image mode="widthFix" src="http://cdn.youlianyc.com/image/static/433b7a36f265ab4a0559b8eba910c008861e2a30.jpg" alt="" />
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,154 @@
+<view class="page-content">
+  <view class="porder">
+      <view class="no">
+        <text for="" class="tuanprice" wx:if="{{order.pin_state=='going'}}">拼单中</text>
+        <text for="" class="tuanprice" wx:elif="{{order.pin_state=='success'}}">拼单成功</text>
+        <text for="" class="tuanprice" wx:elif="{{order.pin_state=='fail'}}">拼单失败</text>
+        <text>订单编号  {{order.id}}</text>
+          <text wx:if="{{order.order_type == 5}}">（开店订单）</text>
+          <button wx:if="{{isCopy}}" type="button" name="button" class="oncecopy" data-clipboard-text="order.id">
+            复制订单编号
+          </button>
+      </view>
+      <view class="order_date">
+          下单时间：{{order.ordered_datetime}}
+      </view>
+      <text class="order_status">
+          <text wx:if="{{order.order_state==1}}">待付款</text>
+          <text wx:if="{{order.order_state==2}}">待发货</text>
+          <text wx:if="{{order.order_state==3}}">待收货</text>
+          <text wx:if="{{order.order_state==4}}">交易成功</text>
+          <text wx:if="{{order.order_state==6}}">出库中</text>
+          <text class="{{order.order_state==5?'status_fail':''}}" wx:if="{{order.order_state==5}}">已关闭</text>
+      </text>
+  </view>
+  <view class="ship">
+    <view class="sname" bindtap="updateData">收货人信息：
+      <image mode='widthFix' wx:if="{{!showShop}}" src="http://cdn.youlianyc.com/image/static/c7fa50bef69d2af234d9387aaec44300fff0905c.jpg" alt=""/>
+      <image mode='widthFix' wx:else src="http://cdn.youlianyc.com/image/static/00c44abe1b5824ef8be22bca0e9ebb83b7e86c9e.jpg" alt="" />
+    </view>
+    <view class="shipc" wx:if="{{showShop}}">
+      <view class="ship_name">
+        <text class="shipto_name">{{order.shipto_name}}</text>
+        <view style="text-decoration: none;color: #3A3A3A;">{{order.shipping_phone}}</view>
+      </view>
+      <view class="ship_address">{{order.shipping_address}}</view>
+    </view>
+  </view>
+  <view class="shop_order" wx:if="{{order.order_type == 5}}">开店商品订单非质量原因不支持退换货</view>
+  <view class="product" wx:for-item="pt" wx:for-index="key" wx:key="key" wx:for="{{order.products}}">
+      <view class="p-detail">
+          <navigator class="picture" url='./../../packageA/shop-detail/index?s={{pt.supplier_id}}&p={{pt.product_id}}'>
+            <image class="picture" src="{{pt.product_image}}" />
+          </navigator>
+          
+          <view class="product-detail">
+              <view class="title">
+                <text wx:if="{{pt.is_giveaway==1}}" class="giveaway">赠品</text>
+                {{pt.product_title}}
+              </view>
+              <view class="sku"> {{pt.sku_info}}
+                <view class="quantity">x{{pt.quantity}}件</view>
+              </view>
+              <view class="p-qu">
+                  <view class="total_price">
+                    <text class="price_family">RMB {{pt.unit_price}}</text>
+                  </view>
+                  <view class="real_price price_family">实付 {{pt.real_unit_price}}</view>
+                  <!-- <view wx:if="{{order.shipping_datetime}}">发货时间：{{order.shipping_datetime}}</view>
+                  <view wx:if="{{pt.shipping_company}}">快递公司：{{pt.shipping_company}}</view>
+                  <view wx:if="{{pt.shipping_code}}">单号：{{pt.shipping_code}}</view> -->
+                  <view class="product_btn" data-order-id="{{order.id}}" data-detail-id="{{pt.detail_id}}" bindtap="applyRefund" wx:if="{{pt.product_state==1 && order.order_type!=5}}">退款</view>
+                    <view class="product_btn" wx:elif="{{order.order_state==3}}" data-type="refund" data-order-id="{{order.id}}" data-detail-id="{{pt.detail_id}}" bindtap="showModel">退款</view>
+
+                    <view 
+                      class="product_btn"
+                      data-order-id="{{order.id}}" 
+                      data-detail-id="{{pt.detail_id}}" 
+                      bindtap="applyAftersale" 
+                      wx:if="{{pt.product_state==2 && order.order_type!=5}}">
+                      售后
+                    </view>
+                    <view 
+                      class="product_btn" 
+                      data-url="../order-refund-detail/index?id={{pt.aftersales_id}}&order_id={{order.id}}&detail_id={{pt.detail_id}}" 
+                      wx:if="{{pt.product_state==3}}"
+                      bindtap="jump">
+                      退款中
+                    </view>
+                    <view 
+                      class="product_btn" 
+                      data-url="../order-refund-detail/index?id={{pt.aftersales_id}}&order_id={{order.id}}&detail_id={{pt.detail_id}}"  
+                      wx:if="{{pt.product_state==4}}"
+                      bindtap="jump">
+                      退款成功
+                    </view>
+                    <view 
+                      class="product_btn" 
+                      data-url="../order-refund-detail/index?id={{pt.aftersales_id}}&order_id={{order.id}}&detail_id={{pt.detail_id}}"  
+                      wx:if="{{pt.product_state==5}}"
+                      bindtap="jump">
+                      售后中
+                    </view>
+                    <view 
+                      class="product_btn" 
+                      data-url="../order-refund-detail/index?id={{pt.aftersales_id}}&order_id={{order.id}}&detail_id={{pt.detail_id}}" 
+                      wx:if="{{pt.product_state==6}}"
+                      bindtap="jump">
+                      售后成功
+                    </view>
+              </view>
+          </view>
+      </view>
+  </view>
+  <view class="total">
+      <view class="order_total">
+          <text>商品合计</text>
+          <text class="order_price price_family">{{order.subtotal_price}}</text>
+      </view>
+      <view class="order_total">
+          <text>运费</text>
+          <text class="order_price price_family">{{order.shipping_cost}}</text>
+      </view>
+      <view class="order_total" wx:if="{{order.discount_info.length>0}}" wx:for-item="dis" wx:key="index" wx:for="{{order.discount_info}}">
+        <text>{{dis.name}}</text>
+        <text class="order_price price_family">-{{dis.amount}}</text>
+      </view>
+      <view class="order_total">
+          <text>实付金额</text>
+          <text class="order_price price_family">{{order.grand_total_price}}</text>
+      </view>
+  </view>
+  <view class="order_time">
+      <view>下单时间：{{order.ordered_datetime}}</view>
+      <view wx:if="{{order.paid_datetime}}">付款时间：{{order.paid_datetime}}</view>
+      <view wx:if="{{order.shipping_datetime}}">发货时间：{{order.shipping_datetime}}</view>
+      <view wx:if="{{order.completed_datetime}}">成交时间：{{order.completed_datetime}}</view>
+  </view>
+
+</view>
+<view class="fix_btn detail_btn" style="">
+<view class="btn_link">
+  <!-- <view wx:if="{{order.order_state==2}}" class="btndiv">
+    <button bindtap="updateAddress" class="order_normal">修改地址</button>
+  </view> -->
+  <!-- <view class="btndiv"> -->
+    <!-- <navigator url="{path: '/consultProduct/'+orderid}" class="order_normal">联系客服</navigator> -->
+    <!-- <button bindtap="contactService" class="order_normal">联系客服</button>
+  </view> -->
+  <!-- <view class="btndiv" wx:if="{{order.pin_id!=''}}">
+    <button bindtap="jump('/m/pt/tuan/'+order.pin_id)" class="order_normal  ">查看团详情</button>
+  </view> -->
+  <view class="btndiv" wx:if="{{order.order_state==4 || order.order_state==3 || order.order_state==6 || (order.order_state==5 && order.has_shipping==1)}}">
+    <navigator class="order_normal" style="border: 1px solid #eae9e8; border-radius: 3px;" url="../order-logistics/index?order_id={{order.id}}">查看物流</navigator>
+  </view>
+
+  <view class="btndiv" wx:if="{{order.order_state==1}}">
+    <button bindtap="orderPay" id="{{order.id}}" class="order_pay">立即支付</button>
+  </view>
+
+  <view class="btndiv" wx:if="{{order.order_state==3}}">
+    <button style="margin: 0"  data-type="confirm" data-order-id="{{order.id}}" bindtap="showModel" class="order_pay">确认收货</button>
+  </view>
+</view>
+</view>

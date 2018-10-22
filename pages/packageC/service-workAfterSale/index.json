@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText":"售后超时",
+    "usingComponents": {
+      "counter": "/pages/component/counter/counter"
+    }
+}

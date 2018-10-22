@@ -1,0 +1,77 @@
+<view class="page">
+  <view class="tishi" wx:if="{{list.top_desc!=null}}">{{list.top_desc}}</view>
+  <form class="subform">
+    <view class="refund">
+      <view class="tf">
+        {{list.content_desc}}
+      </view>
+      <view class="input-text">
+        <view class="text">{{list.content_title}}</view>
+        <textarea 
+          class="input" 
+          name="name" 
+          bindinput="refundChange" 
+          rows="8" 
+          cols="80" 
+          placeholder="{{list.default_content}}">
+        </textarea>
+      </view>
+    </view>
+    <view class="imgs refund">
+      <view class="text">{{list.image_title}}</view>
+      <view class="tip">{{list.image_desc}}</view>
+      <!-- <view 
+        class="upimg" 
+        wx:if="{{images.length>0}}" 
+        wx:key="i"
+        wx:for="{{listData.qa_list}}"
+        wx:for-item="image">
+        <view class="close" bindtap="removeTodo(i)"></view>
+        <image src="{{image.url}}" />
+        <input bindtap="upload($event,i+1)" class="file" type="file" name="file" wx:if="isiOS==true" accept="image/*" multiple value="" />
+        <input bindtap="upload($event,i+1)" class="file" type="file" name="file" v-else accept="image/*" capture="camera" multiple value="" />
+      </view>
+      <view class="upimg" wx:if="{{images.length<3}}">
+        <view class="uploadTip" wx:if="uploadTip==true">上传中</view>
+        <input bindtap="upload($event)" class="file" type="file" name="file" wx:if="isiOS==true" accept="image/*" multiple value="" />
+        <input bindtap="upload($event)" class="file" type="file" name="file" v-else accept="image/*" capture="camera" multiple value="" />
+      </view> -->
+      <view class="uploaded-img">
+        <image 
+          wx:key="index" 
+          wx:for="{{images}}"
+          src="{{item}}"
+          mode="scaleToFill">
+        </image>
+      </view>
+      <view class="uploadImage" bindtap="uploadImage">添加图片</view>
+    </view>
+    <view class="refund mgb">
+      <label class="text">联系电话（必要时将联系你沟通解决方案）</label>
+      <view class="input-text">
+        <input 
+          class="input" 
+          type="number" 
+          value="{{refundedit.mobile}}" 
+          bindinput="mobileInput"
+          name="phone" 
+          placeholder="请填写联系电话" />
+      </view>
+    </view>
+    <view 
+      wx:if="{{submitDisabled==0}}" 
+      bindtap="submit" 
+      class="submit" 
+      id="submitBtn">
+      提交服务单
+    </view>
+    <view 
+      v-else 
+      disabled 
+      bindtap="submit" 
+      class="submit" 
+      id="submitBtn">
+      提交服务单
+     </view>
+  </form>
+</view>

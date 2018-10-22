@@ -1,0 +1,328 @@
+.m {
+  background-color: #fff;
+}
+.m .vipIcon {
+  display: inline-block;
+  height: 12px;
+  line-height: 12px;
+  background: #CDA572;
+  font-family: PingFang-SC-Medium;
+  font-size: 7px;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 0 5px;
+  vertical-align: middle;
+  border-radius: 1px;
+}
+.m .MessagePanel {
+  border-radius: 5px;
+  text-align: center;
+  width: 85%;
+}
+.m .MessagePanel .ptitle {
+  font-family: PingFang-SC-Medium;
+  font-size: 16px;
+  color: #333333;
+  padding: 30px 0;
+}
+.m .MessagePanel .psub {
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  color: #3A3A3A;
+  line-height: 21px;
+  padding: 30px 16px;
+}
+.m .MessagePanel .pbtn {
+  display: -webkit-box;
+}
+.m .MessagePanel .btnok {
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #333333;
+  background: #F5F5F5;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  display: block;
+  -webkit-box-flex: 1;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.m .guide {
+  width: 80%;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #3a3a3a;
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  color: #3a3a3a;
+}
+.m .guide .cjump {
+  height: 30px;
+  line-height: 30px;
+  color: #B34852;
+  font-size: 14px;
+}
+.m .banner {
+  width: 100%;
+  display: block;
+}
+.m .scrollTop {
+  position: fixed;
+  bottom: 20px;
+  z-index: 150;
+  width: 34px;
+  right: 20px;
+}
+.m .cart {
+  position: fixed;
+  right: 20px;
+  bottom: 60px;
+  background: rgba(58, 58, 58, 0.4);
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  border-radius: 34px;
+  font-family: PingFangSC-Regular;
+  font-size: 8px;
+  vertical-align: middle;
+  z-index: 100;
+  text-align: center;
+}
+.m .cart .simg {
+  width: 20px;
+  vertical-align: middle;
+}
+.m .cart .number {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  line-height: 12px;
+  border-radius: 12px;
+  color: #FFFFFF;
+  display: block;
+  background-color: #d43c33;
+  right: 4px;
+  top: 4px;
+  vertical-align: middle;
+}
+.m .linkgo {
+  font-family: FZLTHK--GBK1-0;
+  font-size: 12px;
+  height: 45px;
+  line-height: 45px;
+  margin: 0!important;
+  width: 100%;
+}
+.m .linkgo .d1 {
+  background: #fff!important;
+  color: #FA96A8!important;
+  border-right: 1px solid rgba(250, 150, 168, 0.5) !important;
+  padding: 0!important;
+}
+.m .linkgo .active {
+  background: #FA96A8!important;
+  color: #FFFFFF!important;
+}
+.m .shop {
+  position: fixed;
+  left: 0;
+  top: 75px;
+  background: rgba(58, 58, 58, 0.4);
+  height: 38px;
+  line-height: 38px;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 1px #929292;
+  padding: 0 10px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  vertical-align: middle;
+  z-index: 100;
+}
+.m .shop .simg {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  vertical-align: middle;
+}
+.m .coupon {
+  background: #fff;
+}
+.m .coupon .cimg {
+  width: 100%;
+  display: block;
+}
+.m .giftAnchor .gimg {
+  width: 100%;
+  display: block;
+}
+.m .zhuanti {
+  display: -webkit-box;
+  height: 139px;
+  padding: 0 16px;
+  background-color: #fff;
+}
+.m .zhuanti img {
+  display: block;
+  -webkit-box-flex: 1;
+  margin-right: 7px;
+  width: 1%;
+}
+.m .zhuanti .mag0 {
+  margin: 0;
+}
+.m .ctimg {
+  margin: 0 0 10px;
+}
+.m .ctimg .cimg {
+  width: 100%;
+}
+.m .caterukou {
+  text-align: center;
+  padding: 0 5px 40px;
+  padding-top: 75px;
+  margin-top: -45px;
+  display: block;
+}
+.m .caterukou .pimg img {
+  width: 31%;
+  margin-bottom: 20px;
+  margin-right: 5px;
+}
+.m .fixtop {
+  position: fixed!important;
+  top: 0;
+  z-index: 100;
+  border-top: 0;
+}
+.m .category {
+  width: 100%;
+  color: #3a3a3a;
+  font-size: 13px;
+  text-align: center;
+  overflow-x: scroll;
+  z-index: 99;
+  position: relative;
+}
+.m .category .swiper-container {
+  height: auto!important;
+}
+.m .category .swiper-container .swiper-slide {
+  width: auto;
+}
+.m .category .cate {
+  display: inline-block;
+  height: 45px;
+  line-height: 45px;
+  padding: 0 15px;
+  font-family: FZLTHK--GBK1-0;
+  font-size: 14px;
+  border-right: 1px solid #9C7867;
+  color: #9C7867;
+}
+.m .category .select {
+  font-family: FZLTHK--GBK1-0;
+  font-size: 14px;
+  display: inline-block;
+  height: 45px;
+  line-height: 45px;
+  padding: 0 15px;
+  border-right: 1px solid #9C7867;
+  background-color: #9C7867;
+  color: #fff;
+}
+.m .category .triangle {
+  position: absolute;
+  bottom: -4px;
+  width: 9px;
+}
+.m .list .head {
+  text-align: center;
+  padding: 25px 0 8px;
+  position: relative;
+}
+.m .list .head .twotitle {
+  font-family: PingFang-SC-Medium;
+  font-size: 40px;
+  line-height: 43px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.m .list .head .titlePos {
+  position: absolute;
+  top: 25px;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 1;
+  color: #9C7867;
+}
+.m .list .head .titlePos .onetitle {
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  letter-spacing: 6px;
+}
+.m .list .head .titlePos .onetitle1 {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  letter-spacing: 4px;
+}
+.m .list .product {
+  display: -webkit-box;
+  padding: 10px 10px 0;
+}
+.m .list .product .l {
+  display: block;
+  width: 50%;
+  -webkit-box-flex: 1;
+  background-color: #fff;
+  margin-right: 3px;
+}
+.m .list .product .l:last-of-type {
+  margin-left: 3px;
+  margin-right: 0;
+}
+.m .list .product .l .picon {
+  width: 100%;
+}
+.m .list .product .l .ptitle {
+  font-family: PingFangSC-Light;
+  font-size: 12px;
+  color: #333333;
+  line-height: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  padding: 0 5px;
+  height: 32px;
+}
+.m .list .product .l .price {
+  font-family: PingFang-SC-Medium;
+  font-size: 18px;
+  color: #A72B2D;
+  line-height: 18px;
+  position: relative;
+  vertical-align: middle;
+  height: 26px;
+  line-height: 26px;
+  padding: 8px 5px 10px;
+}
+.m .list .product .l .price .carticon {
+  position: absolute;
+  right: 5px;
+  width: 48px;
+  vertical-align: middle;
+}
+.m .list .product .l .reward {
+  font-family: PingFang-SC-Medium;
+  font-size: 12px;
+  color: #B34852;
+  padding: 0 5px 10px;
+}
+
+.category a{
+  display: inline-block;
+}

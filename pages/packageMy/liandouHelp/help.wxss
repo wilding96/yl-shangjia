@@ -1,0 +1,22 @@
+.rule {
+  background: #fff;
+  padding: 0 16px;
+  min-height: 800px;
+}
+
+.rule .title {
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #484746;
+  padding: 30px 0 10px;
+}
+
+.rule view {
+  list-style-type: none;
+}
+
+.rule view text {
+  font-size: 13px;
+  color: #888888;
+  line-height: 22px;
+}

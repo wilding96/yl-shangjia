@@ -1,0 +1,190 @@
+<view wx:if="{{api_data != null}}" class="verify">
+    <view class="color_bk_FFF updateaddress" wx:if="{{source!=3}}">
+      <view class="pd_14_16_15_16">
+        <view  bindtap="edt_address">
+          <view class="fl" wx:if="{{address_id}}">
+            <view class="left">
+              <text class="fs14 color_3A3A3A">{{api_data.address.contact_name}}</text>
+              <text class="fs14 color_3A3A3A">{{api_data.address.phone}}</text>
+            </view>
+            <view class="left" style="max-width:240px">
+              <text class="fs12 color_888888">{{api_data.address.address}}</text>
+            </view>
+          </view>
+          <view class='fl' wx:else>
+            <text class="fs14 color_888888">请选择收货地址</text>
+          </view>
+          <view class="fr">
+            <!--  转到收货地址区 地址需要支持整区域点击跳转地址页 -->
+            <view class="lnkEdtAddress mt8">
+              <!-- write.png-->
+              <image mode='widthFix' src="https://cdn.youlianyc.com/image/static/1cf3ecd72c3481197452a1983fdccc938ca2a148.png" class="w24" />
+            </view>
+          </view>
+          <view class="clear"></view>
+        </view>
+      </view>
+    </view>
+    <!-- 身份证号码 -->
+    <view class="bindPhone card" wx:if="{{api_data.need_identification==1}}">
+      <view class="ptip">因海关清关需要，请填写收货人的身份证信息</view>
+      <view class="phone">
+        <view class="p1">
+          <input value="{{identification}}" id="identification" bindinput="updateInput" type="text" placeholder="请填写收货人身份证号码" />
+        </view>
+        <view class="p1">
+          <input class="incode" value="{{real_name}}" id="real_name" bindinput="updateInput" type="text" placeholder="请输入收货人姓名" />
+        </view>
+        <button type="button" bindtap="saveCard" name="button" class="save">保存</button>
+      </view>
+    </view>
+
+    <!-- 开店订单 -->
+    <view wx:if="{{api_data.user_info.is_shopkeeper==0 && order_type==1}}" class="bindPhone">
+      <view class="ptip" wx:if="{{api_data.user_info.bind_phone==''}}">欢迎加入有练小店，请填写正确的联系方式</view>
+      <view class="ptip" wx:else>欢迎加入有练小店，付款成功后，即可开启你的有练小店</view>
+      <view class="phone" wx:if="{{api_data.user_info.bind_phone==''}}">
+        <view class="p1">
+          <text>手机号：</text>
+          <input value="{{phone}}" type="number"  id="phone" bindinput="updateInput" placeholder="请填写手机号" />
+        </view>
+        <view class="p1">
+          <text>验证码：</text>
+          <input class="incode" value="{{phone_code}}"  id="phone_code" bindinput="updateInput" type="number" placeholder="请输入验证码" />
+          <text class="code" bindtap="getMessage">{{message}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="store_lists">
+      <view class="list" wx:key="bindex" wx:for-item="item" wx:for-index="bindex" wx:for="{{api_data.blocks}}">
+        <view class="cart-lists">
+            <view class="listTitle">
+              {{item.title}}
+              <text class="ship">{{item.group_shipping_cost_title}}</text>
+            </view>
+            <view wx:key="index" class="pitem {{item.length>1 && (item.length!=index+1)?'line':''}}">
+              <image class="preview" src="{{item.image}}" />
+              <view class="citem">
+                <view class="title">{{item.product_title}}</view>
+                <view wx:if="{{item.is_invalid === 1 && item.invalid_info !== ''}}" class="fs11 color_EA5A49">
+                  {{item.invalid_info}}
+                </view>
+                <view wx:if="{{item.sku_info && item.is_invalid === 0}}" class="spec_list">
+                  {{item.sku_info}}
+                </view>
+                <view class="fs14 color_3A3A3A bold unitPrice">
+                  ￥ {{item.unit_price}}
+                  <text wx:if="{{item.is_invalid === 0}}" class="quantity">
+                    x  {{item.quantity}}
+                  </text>
+                </view>
+                <!--失效图片-->
+                <view class="invalidimg" wx:if="{{item.is_invalid === 1}}">
+                  <!-- <input type="hidden" name="" v-model="disabledBuy =item.is_invalid"> -->
+                  <image src="https://cdn.youlianyc.com/image/static/888cfadcba7e26686e0ce6bc2d03fc3ec80e08ef.png" width="87" mode='widthFix' />
+                </view>
+              </view>
+            </view>
+        </view>
+      </view>
+    </view>
+    <view class="summary-info color_bk_FFF" wx:if="{{source!=3}}">
+      <view class="info_line">
+        <view class="title fl">商品合计</view>
+        <view class="content fr">{{api_data.sub_total_price}}</view>
+        <view class="clear"></view>
+      </view>
+      <view class="info_line">
+        <view class="title fl">
+          运费
+          <image wx:if="{{api_data.shipping_cost!='0.00'}}" class="shipcost" bindtap="panelStatus" id="shipcostPanel" data-panel-status="1" mode="widthFix" src="http://cdn.youlianyc.com/image/static/df873bd6f3e721c1d9f87fb7b94c59a2dc909235.jpg" alt="" />
+        </view>
+        <view class="content fr">{{api_data.shipping_cost}}</view>
+        <view class="clear"></view>
+      </view>
+      <view class="info_line" wx:if="{{ylcoin_check}}">
+        <view class="title fl">练豆抵扣</view>
+        <view class="content fr">-{{use_ylcoin/100}}</view>
+        <view class="clear"></view>
+      </view>
+      <view wx:if="{{api_data.coupons}}" class="info_line" style="position:relative">
+        <view class="title fl">{{ coupon_id === 0 ? '不使用优惠券': '' }}</view>
+        <view class="content">
+          <view wx:if="{{api_data.coupons}}" class="{{api_data.discount.coupons?'coupon_tag':''}} fs10 lh18 fw_normal">
+            <view wx:if="{{api_data.discount.coupons}}" class="" hover-class="none" hover-stop-propagation="false">
+                {{ api_data.discount.coupons.tag }}
+            </view>
+          </view>
+          <view class="color_000" style="display:inline-block;padding-right:9px;position: absolute;right: 25px;top:8rpx;" id="isSelectCoupon" data-panel-status="1" bindtap="panelStatus">
+            <text class="color_3A3A3A">－</text>
+            {{ coupon_id === 0 ? '0.00' : api_data.discount.coupons.amount }}
+          </view>
+          <!-- 右侧箭头图片 />-->
+          <image class="righticon" src="https://cdn.youlianyc.com/image/static/3b559a990b0a86e42850b208eaea07de7a3ce24d.png" mode='widthFix'/>
+        </view>
+        <view class="clear"></view>
+      </view>
+      <view wx:if="{{api_data.discount && api_data.discount.promotion}}" class="info_line">
+        <view class="title fl">优惠活动</view>
+        <view class="content fr">
+          <view wx:if="{{api_data.discount.promotion.tag}}" class="coupon_tag fs10 lh18 h18 fw_normal">
+            {{api_data.discount.promotion.tag}}
+          </view>
+          <view class="color_000" style="display:inline-block;">
+            <text class="color_3A3A3A">－</text>
+            {{ api_data.discount.promotion.amount }}
+          </view>
+        </view>
+        <view class="clear"></view>
+      </view>
+
+      <view class="info_line">
+        <view class="title fl">实付金额</view>
+        <view class="content fr" wx:if="{{ylcoin_check}}">{{api_data.grand_total_price - use_ylcoin / 100}}</view>
+        <view class="content fr" wx:else>{{api_data.grand_total_price}}</view>
+        <view class="clear"></view>
+      </view>
+      <view class="info_line">
+        <view class="title">
+          如需备注，请联系在线客服
+        </view>
+      </view>
+    </view>
+    <view class="i_agree color_bk_FFF h30">
+      {{api_data.address.contact_name}} {{api_data.address.phone}} {{api_data.address.address}}
+    </view>
+    <view class="po_static_footer h50 w100p">
+      <view class="fl color_bk_4C4C4C color_FFF pd_15_0_15_0 w60p h50">
+        <view class="fs12 fl ml_16">共{{api_data.total_quantity}}件</view>
+        <view class="fs14 fl ml_6" wx:if="{{ylcoin_check}}">RMB {{api_data.grand_total_price-use_ylcoin/100}}</view>
+        <view class="fs14 fl ml_6" wx:else>RMB {{api_data.grand_total_price}}</view>
+        <view class="clear"></view>
+      </view>
+
+      <view wx:if="{{api_data.total_quantity >= 1 && payText=='立即支付' && disabledBuy==0}}" class="fr pd_15_0_15_0 w40p center lh50" bindtap="{{isSubmitting?'_go_finish':''}}">
+        <a class="color_FFF fs14">{{payText}}</a>
+      </view>
+      <view wx:elif="{{payText=='立即支付' && disabledBuy==0}}"  class="fr pd_15_0_15_0 w40p center color_bk_888 lh50" bindtap="{{isSubmitting?'_go_finish':''}}">
+        <a class="color_FFF fs14">{{payText}}</a>
+      </view>
+      <view wx:else disabled  class="fr pd_15_0_15_0 w40p center color_bk_888 lh50" style="background:#999;" bindtap="disbaleBuy()">
+        <a class="color_FFF fs14">{{payText}}</a>
+      </view>
+      <view class="clear"></view>
+    </view>
+
+   <!-- 非免邮商品规则 -->
+   <model data-model="shipcostPanel" visible="{{shipcostPanel}}" position="center" title="" fullscreen="{{false}}"
+   opacity="0.8" show-close="{{true}}" width="{{85}}" close-on-click-modal="{{true}}"  class="liandouPanel">
+    <view class="d1">
+      <view class="text">1、美食生鲜类目商品，满88元包邮（部分偏远地区除外），不足将收取基础运费。</view>
+    </view>
+    <view class="d1">
+      <view class="text">2、特定较大体积或重量的商品，需要收取基础运费。</view>
+    </view>
+    <view class="d1">
+      <view class="text">3、无其他免邮说明的商品，需要收取基础运费。</view>
+    </view>
+    <button class="closeliandou"  id="shipcostPanel" data-panel-status="0" bindtap="panelStatus" type="button" name="button">好的</button>
+  </model>
+</view>

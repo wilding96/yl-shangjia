@@ -1,0 +1,61 @@
+.wrapper{
+  font-size: 28rpx;
+  padding: 0 32rpx 32rpx 32rpx;
+  color: #3a3a3a;
+}
+
+.wrapper .button{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  border: 1px solid #D43C33;
+  font-size: 28rpx;
+  border-radius: 0;
+  text-align: center;
+  background-color: #D43C33;
+}
+
+.wrapper .list{
+  display: flex;
+  align-items: center;
+  margin: 40rpx 0;
+}
+.wrapper .list .left{
+  width: 67%;
+}
+.wrapper .list .left p{
+  display: block;
+  line-height: 40rpx;
+}
+.wrapper .list .left p:last-child{
+  margin-top: 4rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.wrapper .list .right{
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.wrapper .list .right span{
+  margin-left: 10rpx;
+  font-size: 24rpx;
+  padding: 2rpx 6rpx;
+  border: 1px solid #D43C33;
+  color: #D43C33;
+}
+.wrapper .list .right image{
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+

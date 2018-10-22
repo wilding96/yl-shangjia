@@ -1,0 +1,47 @@
+<view class="wrapper">
+  <view class="form">
+    <view class="form-list">
+      <view class="left">物流公司</view>
+      <view class="right select">
+        <picker bindchange="shippingCompanyChange" value="{{index}}" range="{{shipping_company}}">
+          <view class="picker">
+            {{shipping_company[index]}}
+          </view>
+        </picker>
+        <div class="icon">
+          <image src="http://cdn.youlianyc.com/image/static/fc59248870edfd8d6d585efc6016dfa7339aa818.jpg"></image></div>
+      </view>
+    </view>
+    <view class="form-list">
+      <view class="left">物流单号</view>
+      <view class="right">
+        <input class="input" type="number" name="number" value="{{payload.number}}" bindinput = "numberInput" placeholder="请输入物流单号" />
+      </view>
+    </view>
+    <view class="form-list">
+      <view class="left">物流说明</view>
+      <view class="right">
+        <input class="input" name="note" value="{{payload.note}}" bindinput = "noteInput" placeholder="请输入物流说明" />
+      </view>
+    </view>
+    <view class="form-list">
+      <view class="left">寄回运费</view>
+      <view class="right">
+        <input class="input" type="number" name="note" value="{{payload.yf}}" bindinput = "shopcostInput" placeholder="请输入寄回运费" />
+      </view>
+    </view>
+    <view class="form-list">
+      <view class="left">支付宝账号</view>
+      <view class="right">
+        <input class="input" name="note" value="{{payload.zh}}" bindinput = "accountInput" placeholder="请输入支付宝账号" />
+      </view>
+    </view>
+    <view class="form-list">
+      <view class="left">支付宝姓名</view>
+      <view class="right">
+        <input class="input" name="note" value="{{payload.name}}" bindinput = "nameInput" placeholder="请输入支付宝姓名" />
+      </view>
+    </view>
+  </view>
+  <button class="btn" bindtap="submitAftersales">提交申请</button>
+</view>

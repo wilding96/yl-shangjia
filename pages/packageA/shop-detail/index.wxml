@@ -1,0 +1,404 @@
+<view class="product" wx:if="{{p!=''}}">
+  <!-- <view class="gonggao">
+    <image mode="widthFix" src="http://cdn.youlianyc.com/image/static/c300981517c5ae5b62bbd592003f95d667df27b8.jpg" />
+    11月20日起，发往或中转北京地区的快递时效受影响
+  </view> -->
+  <view class="swiper-container">
+
+
+    <!-- <video wx:if="{{p.info.video_url!='' && showVideo=='true' && !skuModel && !address_model}}" page-gesture="true" src="{{p.info.video_url}}"  width="100%" class="detailVideo">
+      <cover-view class="controls">
+        <cover-view class="video">
+          <cover-image class="img" src="http://cdn.youlianyc.com/image/static/84b64f6f86c2443e1ef073b47b6baf630651ff79.jpg" />
+        </cover-view>
+        <cover-view class="image">
+          <cover-image class="img" src="http://cdn.youlianyc.com/image/static/77c84d0d7d9121c60aeccfecbe74c516f6c0b2e9.jpg" />
+        </cover-view>
+        <cover-view class="text">
+          <cover-view>
+            近期销量{{p.info.sales_volume}}笔
+          </cover-view>
+        </cover-view>
+      </cover-view>
+    </video> -->
+
+    <!-- <video wx:if="{{p.info.video_url!='' && showVideo=='true' && !skuModel && !address_model}}" page-gesture="true" src="{{p.info.video_url}}"  width="100%" class="detailVideo">
+      <cover-view class="pause" bindtap="pause">
+        <cover-image class="img" src="http://cdn.youlianyc.com/image/static/b9ebe9c29a8bacbb31d7a852954c584748d88dfa.jpg" />
+      </cover-view>
+    </video> -->
+
+    <view 
+      wx:if="{{p.info.video_url}}"
+      class="videoShow"
+      bindtap="changeVideoSwiper">
+      点击切换产品图片或者视频
+    </view>
+
+    <video 
+      wx:if="{{videoShow}}"
+      src="{{p.info.video_url}}"
+      width="100%" 
+      duration="100"
+      autoplay="true"
+      class="detailVideo">
+    </video>
+
+    <swiper 
+      class="swiper_box" 
+      wx:if="{{p.info.images.length>0 && !videoShow}}"
+      autoplay="{{autoplay}}" 
+      interval="{{interval}}" 
+      duration="{{duration}}" 
+      bindchange="swiperchange">
+      <swiper-item wx:for="{{p.info.images}}" wx:key="id">
+        <image src="{{item}}" class="slide-image" width="355" height="150" mode="aspectFit" lazy-load="true"/>
+      </swiper-item>
+     </swiper>
+     <view class="dots">
+       <block wx:for="{{p.info.images}}" wx:key="unique">
+         <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+       </block>
+     </view>
+     <!-- <view class="video-control" wx:if="{{p.info.video_url!=''}}">
+       <image class="video" src="{{activeIndex == 0 ? tab.videoActive : tab.videoCommon}}" data-type="true" bindtap="showBanner"/>
+       <image class="pimages" src="{{activeIndex > 0 ? tab.imagesActive : tab.imagesCommon}}" data-type="false" bindtap="showBanner"/>
+     </view> -->
+    <view class="qiang" wx:if="{{p.info.sale_status==0 || p.info.sale_status==3}}">
+      <image mode='widthFix' src="https://cdn.youlianyc.com/image/static/64f9db27ff10db62483b47d89c6fd4bd9b3a287b.png" />
+    </view>
+    <view class="nvw" hidden="{{p.info.sales_volume<30}}">
+      <image 
+        src="http://cdn.youlianyc.com/image/static/b9ebe9c29a8bacbb31d7a852954c584748d88dfa.jpg"
+        mode="aspectFit" />
+      近期销量{{p.info.sales_volume}}笔
+    </view>
+  </view>
+  <view class="coupontip" wx:if="{{p.coupons!=null}}">
+    <view wx:if="{{p.coupons.coupon_type==1}}" class="">
+      您有一张满{{p.coupons.least_pay}}元减{{p.coupons.free_pay}}元优惠券可使用
+    </view>
+    <view wx:if="{{p.coupons.coupon_type==2}}" class="" hover-class="none" hover-stop-propagation="false">
+      您有一张{{p.coupons.pay_money}}元券可使用
+    </view>
+    <view wx:if="{{p.coupons.coupon_type==3}}" class="" hover-class="none" hover-stop-propagation="false">
+      您有一张{{p.coupons.discount_rate}}折券可使用
+    </view>
+  </view>
+  <view class="sell" wx:if="{{p.info.selling_point.length>0}}">
+    <view class="point" wx:key="index" wx:for-item="sell" wx:for="{{p.info.selling_point}}">
+      <image class="img" src="{{sell.image}}!375x375c" />
+      <text class="con" for="">{{sell.content}}</text>
+    </view>
+  </view>
+  <!-- VIP店长专享提示 -->
+  <view class="todayhot vip" wx:if="{{plan_types==3}}">
+    <view class="ratio">
+      限时特惠
+      <text class="gou" for="">抢购中</text>
+    </view>
+    <view class="shopDetail" wx:if="{{p.vip_info!=null}}">
+      离结束还剩
+      <counter counter-class="detail" next-time="{{p.vip_info.left_time}}"></counter>
+    </view>
+  </view>
+  <!-- 拼团提示 -->
+  <view class="todayhot" wx:if="{{plan_types==2}}">
+    <view class="ratio">
+      拼团中
+      <image mode="widthFix" src="http://cdn.youlianyc.com/image/static/3f10907c07ff16cedaa251914ade9dac8a6bd644.jpg" />
+    </view>
+    <view class="counter">
+      离结束还剩
+      <counter counter-class="detail" next-time="{{p.pin_info.left_time}}"></counter>
+    </view>
+  </view>
+  <!-- 预告 -->
+  <view class="todayhot preview" wx:if="{{p.preview_info!=null}}">
+    {{p.preview_info.start_time_desc}} {{p.preview_info.desc}}
+    <text class="previewPrice">￥{{p.preview_info.price}}</text>
+  </view>
+  <!--详情描述  -->
+  <view class="detail">
+    <view class="fenge">
+      <view class="money">
+        <text class="count">￥{{p.price_info.price}}</text>
+        <text class="doller aaa" wx:if="{{p.price_info.multi_price==1}}">起</text>
+        <view class="sy">
+          {{p.info.amount>50? '库存充足':'库存紧张'}}
+        </view>
+      </view>
+      <view class="title">
+        {{p.info.title}}
+      </view>
+      <view class="subtitle">
+        {{p.info.sub_title}}
+      </view>
+      <view class="texing">
+        <text class="manufacturer"> {{p.info.desc}}、</text>
+        <text class="manufacturer" wx:if="{{p.info.express_city!=''}}"> {{p.info.express_city}}发货 </text>
+        <text class="manufacturer" wx:if="{{p.info.express_company!=''}}"> {{p.info.express_company}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 优质服务品质保证 -->
+  <view class="advantage_info" data-panelName="dialogvisible" bindtap="openModel" wx:if="{{!!p.advantage_info && p.advantage_info.length > 0}}">
+    <view class="infoc service">
+      <view class="left">服务：</view>
+      <view class="right">
+        <text class="advantage" wx:for-item="advantage" wx:key="index" wx:for="{{p.advantage_info}}">
+          <text class="font-icon"></text>{{advantage.title}}
+        </text>
+      </view>
+    </view>
+  </view>
+  <model data-model="dialogvisible" visible="{{dialogvisible}}" position="bottom" title="优质服务" fullscreen="{{false}}"
+   opacity="0.8" show-close="{{true}}" width="{{100}}" close-on-click-modal="{{true}}">
+    <view class="advantagePanel">
+      <view class="lscroll">
+        <view class="" wx:key="index" wx:for="{{p.advantage_info}}">
+            <view class="infot">
+              <text class="font-icon"></text>{{item.title}}
+            </view>
+            <view class="subt">{{item.detail}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="closePanle" id="dialogvisible" bindtap="closeModel">完成</view>
+  </model>
+
+  <!-- 送货地址 -->
+  <view 
+    class="advantage_info addressManage"
+    bindtap="addressPanle">
+    <view class="infoc">
+      <view class="adree">
+        送至：
+        <image mode="aspectFit" src="http://cdn.youlianyc.com/image/static/7e271e82af518bfde21b80343b419aa622363616.jpg"/>
+        {{address_text}}
+      </view>
+      <view class="cand" wx:if="{{can_delivery===1}}">可配送</view>
+      <view class="cand" wx:else>不可配送</view>
+    </view>
+  </view>
+
+  <view 
+    class="addressManageModel"
+    wx:if="{{address_model}}">
+    <view 
+      class="bg" 
+      bindtap="closeAddressPanle">
+    </view>
+    <view class="main">
+      <view class="title">配送至</view>
+      <view 
+        class="list" 
+        wx:if="{{addressList.length > 0}}">
+        <ul>
+          <li
+            wx:key="index" 
+            wx:for-item="item" 
+            wx:for="{{addressList}}"
+            data-index="{{index}}"
+            bindtap="selectAddress">
+            <span>{{item.province.name}}{{item.city.name}}{{item.district.name}}{{item.detail_address}}</span>
+            <image 
+              wx:if="{{selectAddressIndex==index}}"
+              mode="aspectFit" 
+              src="http://cdn.youlianyc.com/image/static/7e271e82af518bfde21b80343b419aa622363616.jpg">
+            </image>
+            <image 
+              wx:if="{{selectAddressIndex!==index}}"
+              mode="aspectFit" 
+              src="http://cdn.youlianyc.com/image/static/3ec5ef528718d4924d44a080b10d7124cf9f8765.jpg">
+            </image>
+          </li>
+        </ul>
+      </view>
+      <picker 
+        class="button"
+        mode="region" 
+        bindchange="bindRegionChange" 
+        value="{{region}}" 
+        custom-item="{{customItem}}">
+        <view class="picker">
+          选择其他地址
+        </view>
+      </picker>
+      <image 
+        src="http://cdn.youlianyc.com/image/static/077a63e91559b97cec04d08c6e6b998ed11c1d5b.jpg" 
+        mode="widthFix"
+        class="close"
+        bindtap="closeAddressPanle"
+        style="width: 40rpx;">
+      </image>
+    </view>
+  </view>
+  <!-- 送货地址 -->
+
+  <!--领取优惠券  -->
+  <view class="coupon" wx:if="{{p.promotion_info.coupon.length>0}}">
+    <scroll-view class="scrollx" scroll-x="true">
+      <view class="c" bindtap='getCoupon' id="{{c.id}}" wx:key="c.id" wx:for-item="c" wx:for="{{p.promotion_info.coupon}}">
+        <image class="cimg" width="21" src="https://cdn.youlianyc.com/image/static/42e2f6d2521d368a823d07c010e3bc8d.png" />
+        <view class="free_pay"><text>￥</text>{{c.free_pay}}</view>
+        <view class="coupon_title">满{{c.least_pay}}减{{c.free_pay}}</view>
+      </view>
+    </scroll-view >
+  </view>
+
+  <!-- 图文详情 -->
+  <view class="content">
+    <view class="xuzhibuy">
+      <view class="detailTab">
+        <view bindtap="noticeChange" data-notice="1" class="tab {{noticeTab=='1' ? 'tsel' : ''}}">图文详情</view>
+        <view bindtap="noticeChange" data-notice="2" class="tab {{noticeTab=='2' ? 'tsel' : ''}}">购买须知</view>
+      </view>
+    </view>
+
+    <view class="" wx:if="{{noticeTab=='1'}}" >
+      <view class="tuwen" wx:if="{{p.info.attributes.length>0}}">
+        <view class="te">商品参数</view>
+        <view class="table">
+          <view class="tr" wx:key="i" wx:for-index="i" wx:for-item="attr" wx:for="{{p.info.attributes}}">
+            <view class="td th">{{attr.title}}</view>
+            <view class="td">{{attr.content}}</view>
+          </view>
+        </view>
+      </view>
+      <view wx:for-item="content" wx:key="index" wx:for="{{p.info.content}}">
+        <image mode="widthFix" wx:if="{{content.content}}" src="{{content.content}}" wx:if="{{content.label=='img'}}"/>
+        <view wx:if="{{content.text=='video'}}">
+          <video class="video" src="{{content.content}}" page-gesture="true"></video>
+        </view>
+      </view>
+    </view>
+    <view class="" wx:else>
+      <image mode="widthFix" wx:if="{{p.info.notice_img}}" src="{{p.info.notice_img}}" />
+    </view>
+  </view>
+  <view class="code" wx:if="{{shop!=null}}">
+    <image mode="widthFix" wx:if="{{shop.wechat_card}}" class="qrcode" src="{{shop.wechat_card}}" />
+  </view>
+  <view wx:else class="code">
+    <image mode="widthFix" class="qrcode" src="https://cdn.youlianyc.com/image/static/bb5e9afbc50482fed4a6c66a22de0a9ce90f295a.jpeg!1125" />
+    <view class="tip">长按识别关注公众号</view>
+    <view class="tip">认识有练/订单管理</view>
+  </view>
+  <view class="fix-bottom">
+    <navigator 
+      class="customer buystatus preProduct" 
+      style="line-height:70px;"
+      open-type="switchTab"
+      url="./../../tabbar/shop-list/index">
+      回到首页
+    </navigator>
+    <block 
+      style="display: inline-block;">
+      <view 
+        wx:if="{{p.info.sale_status || p.info.sale_status != 3}}"
+        data-panelName="skuModel" 
+        bindtap="openModel" 
+        class="dollerprice">
+        <view class="p">立即购买</view>
+      </view>
+      <view 
+        class="customer qianguang" 
+        style="line-height:50px;" 
+        wx:if="{{p.info.sale_status==0 || p.info.sale_status==3}}">
+        已抢光
+      </view>
+    </block>
+  </view>
+  <!--选择SKU弹层  -->
+   <model 
+    data-model="skuModel" 
+    class="modelIndex" 
+    visible="{{skuModel}}" 
+    position="bottom" 
+    title="" 
+    fullscreen="{{false}}"
+    opacity="0.8" 
+    show-close="{{false}}"
+    width="{{100}}" 
+    close-on-click-modal="{{true}}">
+    <view class="activity-panel">
+       <view class="item-info">
+          <view class="info-img" bindtap="largerVisible=true">
+            <image src="{{propImg}}" mode='widthFix' /> 
+          </view>
+          <view class="info-content">
+            <view class="info-price">
+              <text class="skuPrice">￥{{skuMain.sku_price}}</text>
+              <text class="sku_quantity" wx:if="{{ skuMain.sku_quantity }}">(库存{{skuMain.sku_quantity}}件)</text>
+              <view class="vipPrice" wx:if="{{plan_types==3}}">
+                ￥{{skuMain.vip_price}}
+                <image 
+                  style="width: 40px" 
+                  mode='widthFix'
+                  src="http://cdn.youlianyc.com/image/static/0e16f42793a5b6fa8b2b87ff2c6b25406ee2071d.jpg" />
+              </view>
+            </view>
+            <view class="info-title" wx:key="index" wx:for-item="sku" wx:for="{{p.sku_info.sku_props}}">
+              <view wx:if="{{!!targetel['target'+sku.prop_id]}}">
+                 <text class="sku-value" wx:key="index" wx:if="{{sku.prop_id+':'+value.value_id===targetel['target'+sku.prop_id] && pvMapQuantityZero.length !== p.stock_info.sku_quantity.length}}" wx:for-item="value" wx:for="{{sku.values}}">
+                    '{{value.name}}'
+                </text>
+              </view>
+              <view wx:else>
+                {{sku.prop_name}}
+              </view>
+            </view>
+          </view>
+       </view>
+       <view class="scroll-content">
+         <view class="sku-props" wx:key="index" wx:for-item="sku" wx:for-index="index" wx:for="{{p.sku_info.sku_props}}">
+            <view class="sku-name">{{sku.prop_name}}  </view>
+            <view class="sku-prop">
+              <view
+              class="sku-value {{sku.prop_id+':'+value.value_id===targetel['target'+sku.prop_id]?'pickon':''}}"
+              bindtap="changeSku" wx:key="index" wx:for-item="value" wx:for="{{sku.values}}" data-prop-id="{{sku.prop_id}}"
+               data-value-id="{{value.value_id}}" data-fake="{{false}}" data-zero="{{false}}">
+                {{value.name}}
+              </view>
+            </view>
+         </view>
+         <view class="sku-props">
+            <view class="sku-name">数量</view>
+            <view class="quantity">
+              <text class="subtract disabled" disabled wx:if="{{skuMain.quantity==1 || pvMapQuantityZero.length===p.stock_info.sku_quantity.length}}">-</text>
+              <text class="subtract" wx:else data-quantity="subtract" bindtap="updateQuantity">-</text>
+              <text class="num">{{skuMain.quantity}}</text>
+              <text class="add disabled" disabled wx:if="{{skuMain.sku_quantity==skuMain.quantity || pvMapQuantityZero.length===p.stock_info.sku_quantity.length}}">+</text>
+              <text class="add" wx:else data-quantity="add" bindtap="updateQuantity">+</text>
+            </view>
+         </view>
+       </view>
+       <view class="buystatus buypanel">
+         <text bindtap="confirmBuy">立即购买</text>
+       </view>
+    </view>
+  </model>
+
+  <!-- 优惠券弹层 -->
+  <model class="guide" data-model="popupVisible1" visible="{{popupVisible1}}" position="center"
+  title="好友给你送福利啦～" fullscreen="{{false}}"
+   opacity="0.8" show-close="{{false}}" border-radius="5" width="{{85}}" close-on-click-modal="{{true}}" v-model="popupVisible1">
+      <view class="lscroll">
+        <view class="list" wx:key="index" wx:for-item="l" wx:for="{{listData}}">
+          <view class="left">
+            <span>立减</span>
+            <span class="price">{{l.free_pay}}</span>
+            <span>元</span>
+          </view>
+          <view class="right">
+            <view class="tip">适用商品</view>
+            <view class="title">{{l.title}}</view>
+            <view class="time">有效期至：{{l.end_time}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="getcoupon" id="{{panelCouponIds}}" bindtap="getCoupon">立即领取</view>
+      <view id="popupVisible1" bindtap="closeModel" class="couponthink">放弃领取</view>
+  </model>
+</view>

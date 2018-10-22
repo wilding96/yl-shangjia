@@ -1,0 +1,7 @@
+<view class='payment'>
+  <view class='title'>支付成功</view>
+  <view class='btn'>
+    <navigator class='fbtn order' url='./../../pages/tabbar/order-list/index'>查看订单</navigator>
+    <navigator class='fbtn guang' url='./../../pages/tabbar/shop-list/index'>继续逛逛</navigator>
+  </view>
+</view>

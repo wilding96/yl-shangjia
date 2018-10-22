@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText":"服务单申请进度",
+    "usingComponents": {
+      "counter": "/pages/component/counter/counter"
+    }
+}

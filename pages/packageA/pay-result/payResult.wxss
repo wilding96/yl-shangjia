@@ -1,0 +1,39 @@
+.payment {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+  background: #fff;
+}
+.payment .title {
+  padding-top: 30px;
+  font-family: PingFang-SC-Medium;
+  font-size: 52rpx;
+  color: #333333;
+  text-align: center;
+}
+.payment .btn {
+  display: -webkit-box;
+  margin: 20px 17% 0;
+}
+.fbtn {
+  text-decoration: none;
+  -webkit-box-flex:1;
+  display: block;
+  font-size: 28rpx;
+  width: 1%;
+  height: 44px;
+  line-height: 44px;
+}
+.payment .btn .order {
+  color: #B34852;
+  background: #FFFFFF;
+  border: 1px solid #B34852;
+  margin-right: 5px;
+}
+.payment .btn .guang {
+  background: #B34852;
+  border-radius: 1px;
+  color: #FFFFFF;
+  border: 1px solid #B34852;
+  margin-left: 5px;
+}

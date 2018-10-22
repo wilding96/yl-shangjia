@@ -1,0 +1,119 @@
+<view class="evaluate">
+  <view class="btn">
+    <view 
+      data-id="{{tag.id}}"
+      bindtap="tabClick"
+      wx:for="{{tags}}" 
+      wx:for-item="tag" 
+      wx:key="index"
+      class="b1 {{tag_id == tag.id? 'btnactive':''}}">
+      {{tag.name}}
+    </view>
+  </view>
+  <view 
+    class="scroll" 
+    v-infinite-scroll="loadMore" 
+    infinite-scroll-disabled="loading" 
+    infinite-scroll-distance="50%">
+    <view 
+      wx:if="{{reviews.length > 0}}">
+      <view 
+        class="lists"
+        wx:for="{{reviews}}" 
+        wx:for-item="r" 
+        wx:key="index">
+        <view class="rmessage">
+          <image 
+            class="avatar" 
+            src="{{r.avatar}}">
+          </image>
+          <view class="rcontent">
+            <label class="nick">{{r.nick}}</label>
+            <label class="time">{{r.created_at}}</label>
+          </view>
+        </view>
+        <view class="rc">
+          <view class="c">
+            {{r.content}}
+          </view>
+          
+          <scroll-view scroll-x="true"> 
+           <view 
+            class="evaluateWrap"
+            data-index="{{index}}"
+            bindtap="showLarge"> 
+            <view 
+              class="evaluate_Item" 
+              wx:for="{{r.images}}"
+              wx:for-item="img"
+              wx:key="imgIndex">
+              <image 
+                class="evaluate_Item_img" 
+                src="{{img + '!375x375c'}}"
+                mode="widthFix">
+              </image>  
+            </view> 
+           </view> 
+          </scroll-view>
+
+        </view>
+        <view class="skuinfo">
+          规格：{{r.sku_info}}
+        </view>
+        <view class="reply" wx:if="{{r.reply!=''}}">
+          <label>客服回复: </label>{{r.reply}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 加载更多 -->
+  <view
+    wx:if="{{!loading}}"
+    class="loadMore"
+    bindtap="loadMore">
+    加载更多
+  </view>
+  <!-- 加载更多 -->
+
+  <view 
+    wx:if="{{largerVisible}}"
+    class="largerVisible">
+    <div 
+      class="bg">
+    </div>
+    <div 
+      class="close" 
+      bindtap="closeLargerVisible">
+      <image 
+        src="http://cdn.youlianyc.com/image/static/3af39e6f5953744aacf49e0150dd379eb5087340.jpg"
+        mode="widthFix"></image>
+    </div>
+    <div class="main">
+      <swiper 
+        indicator-dots="false"
+        indicator-color="#666"
+        indicator-active-color="#fff"
+        autoplay="false" 
+        interval="5000" 
+        duration="300">
+        <block 
+          wx:for="{{imgs}}" 
+          wx:for-item="img" 
+          wx:key="index">
+          <swiper-item>
+            <image 
+              src="{{img+'!800x800c'}}"
+              class="slide-image"
+              mode="widthFix">
+            </image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </div>
+    <!-- <swiper class="swiper_img" :options="swiperOption" ref="mySwiper">
+      <swiper-slide v-for="(img,index) in imgs" :key="index" style="width:100%;height:375px;overflow:hidden">
+        <img class="swiper-lazy" :src="img+'!800x800c'"  style="width:100%;"/>
+      </swiper-slide>
+    </swiper> -->
+  </view>
+</view>

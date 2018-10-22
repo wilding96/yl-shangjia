@@ -1,0 +1,15 @@
+<view class="payout">
+  <view class="title">尊敬的客户，{{message}}</view>
+  <ul class="u1">
+    <li>尊敬的客户，收到商品之日起7天（含），</li>
+    <li>A、如有质量问题，可申请售后，商家承担往返运费；</li>
+    <li>B、非质量问题，不影响二次销售前提下，视情况可进行退换货，需要您自行承担往返运费。</li>
+    <li>C、内裤、食品等特殊商品无质量问题，不支持退换货。</li>
+  </ul>
+  <view class="tip">若商品支持保修、维修服务，可提交工单申请，我们将尽快受理。</view>
+  <view 
+  	bindtap="jump"
+  	class="fix-bottom">
+  	提交服务单
+  </view>
+</view>

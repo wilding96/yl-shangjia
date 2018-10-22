@@ -1,0 +1,238 @@
+.my {
+  background: #f5f5f5;
+}
+
+.my .shelvePanel {
+  border-radius: 5px;
+  text-align: center;
+  width: 85%;
+}
+
+.my .shelvePanel .title {
+  font-family: PingFang-SC-Medium;
+  font-size: 16px;
+  color: #333333;
+  padding-top: 15px;
+}
+
+.my .shelvePanel .text {
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #666666;
+  text-align: left;
+  line-height: 25px;
+  height: 25px;
+  border: 1px solid #eee;
+  -webkit-appearance: none;
+  width: 92%;
+  margin: 15px 0;
+}
+
+.my .shelvePanel .openbtn {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  background-color: #f5f5f5;
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #333333;
+  border: none;
+  border-radius: 0 0 5px 5px;
+}
+
+.my .shelvePanel .d1 {
+  height: 45px;
+  line-height: 45px;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  text-align: left;
+  margin-left: 15px;
+  font-size: 14px;
+  font-family: PingFangSC-Regular;
+}
+
+.my .shelvePanel .d1 label {
+  position: absolute;
+  right: 16px;
+}
+
+.my .attention {
+  position: relative;
+  background-color: #fff;
+  padding: 10px 8px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.my .attention .ylicon {
+  width: 44px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.my .attention .guanzhu {
+  font-family: PingFangSC-Regular;
+  color: #333;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.my .attention .guanzhu .yq {
+  font-size: 14px;
+}
+
+.my .attention .guanzhu .sub {
+  font-size: 12px;
+  color: #999;
+}
+
+.my .attention .gz {
+  background: #B34852;
+  border-radius: 2px;
+  width: 64px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  right: 8px;
+  top: 16px;
+}
+
+.my .s_name {
+  height: 117px;
+  background: #CDA572;
+  display: block;
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #FFFFFF;
+  padding: 15px 0;
+}
+
+.my .s_name img {
+  margin-top: 35px;
+}
+
+.my .s_name .tip {
+  padding-top: 30px;
+}
+
+.my .s_name .levent {
+  border: 1px solid #FFFFFF;
+  border-radius: 2px;
+  width: 95px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 25px auto 0;
+}
+
+.my .s_name .avimg {
+  position: relative;
+  width: 60px;
+  margin: 0 auto;
+}
+
+.my .s_name .avimg .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+}
+
+.my .s_name .avimg .vv {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  bottom: 5px;
+  right: 0;
+}
+
+.my .vip {
+  background: #CDA572;
+}
+
+.my .order {
+  background-color: #fff;
+  color: #3A3A3A;
+  margin: 10px 0;
+}
+
+.my .order .manage {
+  height: 44px;
+  line-height: 44px;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e4e3;
+  padding: 0 16px;
+  background-color: #fff;
+  display: block;
+  color: #3a3a3a;
+}
+
+.my .order .manage .olink {
+  font-size: 11px;
+  color: #888;
+  float: right;
+}
+
+.my .order .manage .olink image {
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+}
+
+.my .order .ostatus {
+  display: -webkit-box;
+  height: 89px;
+  padding: 0 16px;
+}
+
+.my .order .ostatus .s {
+  -webkit-box-flex: 1;
+  text-align: center;
+  font-size: 12px;
+  color: #3A3A3A;
+  margin: 20px 0;
+  display: block;
+}
+
+.my .order .ostatus .s image {
+  width: 18px;
+  height: 18px;
+  display: block;
+  margin: 6px auto;
+}
+
+.s_num {
+  display: inline-block;
+  position: relative;
+  right: 20rpx;
+  bottom: 54rpx;
+  background-color: #ba2400;
+  color: #fff;
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+  font-size: 18rpx;
+}
+
+.detail_link {
+  margin-right: 10px;
+}
+
+.managebtn {
+  height: 44px;
+  line-height: 44px;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e4e3;
+  border-radius: 0;
+  padding: 0 16px;
+  background-color: #fff;
+  display: block;
+  color: #3a3a3a;
+  text-align: left;
+}
+
+.order button::after{ border: none; }
+/*# sourceMappingURL=b.css.map */

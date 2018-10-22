@@ -1,0 +1,153 @@
+.payout {
+  padding-bottom: 80px;
+}
+.payout .tishi {
+  line-height: 25px;
+  font-size: 16px;
+  padding: 10px 16px;
+  color: #fff;
+  font-family: PingFangSC-Regular;
+  background-color: #4A90E2;
+  margin-bottom: 10px;
+}
+.payout .list {
+  background: #fff;
+  margin-bottom: 10px;
+}
+.payout .list .order-title {
+  height: 30px;
+  line-height: 30px;
+  font-size: 11px;
+  color: #3a3a3a;
+  padding: 10px 16px 0 0;
+  margin-left: 16px;
+  vertical-align: top;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+.payout .list .order-title .ttid {
+  position: absolute;
+  right: 16px;
+  top: 10px;
+}
+.payout .list .order-title .tid {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+}
+.payout .list .product {
+  min-height: 120px;
+  padding: 0 16px;
+  border-bottom: 1px solid #eee;
+}
+.payout .list .product .p-detail {
+  padding: 16px 0;
+  display: block;
+}
+.payout .list .product .p-detail .picture {
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+}
+.payout .list .product .p-detail .product-detail {
+  width: 65%;
+  vertical-align: top;
+  display: inline-block;
+  margin-left: 13px;
+}
+.payout .list .product .p-detail .product-detail .title {
+  font-size: 14px;
+  color: #3A3A3A;
+  width: 100%;
+  display: block;
+}
+.payout .list .product .p-detail .product-detail .sku {
+  font-size: 12px;
+  color: #888888;
+}
+.payout .list .product .p-detail .product-detail .sku .guige {
+  display: inline-block;
+  width: 84%;
+}
+.payout .none {
+  font-size: 14px;
+  text-align: center;
+}
+.payout .gress {
+  margin-top: 10px;
+  background-color: #fff;
+  padding: 0 16px;
+  font-family: PingFangSC-Regular;
+}
+.payout .gress .title {
+  font-size: 14px;
+  color: #3a3a3a;
+  line-height: 25px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.payout .gress .bnone {
+  border: none;
+}
+.payout .gress .image image {
+  display: inline-block;
+  width: 80px;
+  margin-right: 5px;
+}
+.payout .gress .opbg {
+  background: #dbe9f9;
+  border: 1px solid #dbe9f9;
+}
+.payout .gress .kefu {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 1px 3px 5px #999;
+}
+.payout .gress .kefu .operator {
+  position: relative;
+}
+.payout .gress .kefu .operator .time {
+  font-size: 12px;
+  color: #999;
+  font-family: PingFangSC-Regular;
+  position: absolute;
+  right: 0;
+}
+.payout .gress .kefu .con {
+  font-size: 14px;
+  color: #3a3a3a;
+  line-height: 25px;
+  margin: 15px 0;
+}
+.payout .fix-bottom {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: #4A90E2;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  border: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  display: -webkit-box;
+  border-top: 1px solid #4a90e2;
+}
+.payout .fix-bottom view,
+.payout .fix-bottom .huih {
+  display: block;
+  -webkit-box-flex: 1;
+  text-align: center;
+  width: 1%;
+}
+.payout .fix-bottom .huih {
+  background-color: #fff!important;
+  color: #4A90E2!important;
+}
